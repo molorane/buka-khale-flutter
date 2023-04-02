@@ -55,12 +55,6 @@ class _BottomNavBarState extends ConsumerState<BottomNavBar> {
           icon: Icon(LineAwesomeIcons.bible, size: _iconSize),
         ),
         BottomNavigationBarItem(
-          label: 'Church',
-          tooltip: '',
-          activeIcon: Icon(LineAwesomeIcons.church, size: _iconSize),
-          icon: Icon(LineAwesomeIcons.church, size: _iconSize),
-        ),
-        BottomNavigationBarItem(
           label: 'Me',
           tooltip: '',
           activeIcon: Icon(LineAwesomeIcons.user, size: _iconSize),

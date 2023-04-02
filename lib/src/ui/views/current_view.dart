@@ -26,7 +26,6 @@ import 'package:buka_ea_khale/src/providers/reader_settings_repository_provider.
 import 'package:buka_ea_khale/src/providers/streaks_repository_provider.dart';
 import 'package:buka_ea_khale/src/providers/study_tools_repository_provider.dart';
 import 'package:buka_ea_khale/src/ui/views/bible_view/bible_view.dart';
-import 'package:buka_ea_khale/src/ui/views/church_view/church_view.dart';
 import 'package:buka_ea_khale/src/ui/views/home_view/home_view.dart';
 import 'package:buka_ea_khale/src/ui/views/profile_view/profile_view.dart';
 
@@ -82,7 +81,6 @@ class _CurrentViewState extends ConsumerState<CurrentView> {
     const _views = <Widget>[
       HomeView(),
       BibleView(),
-      ChurchView(),
       ProfileView(),
     ];
 

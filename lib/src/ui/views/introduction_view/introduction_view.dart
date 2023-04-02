@@ -199,7 +199,7 @@ class _WelcomeViewState extends ConsumerState<WelcomeView> {
         Column(
           children: [
             Text(
-              'Welcome to Elisha',
+              'Welcome to Buka Ea Khale',
               style: Theme.of(context).textTheme.headline4,
             ),
             const SizedBox(height: 10),
@@ -243,7 +243,7 @@ class _WelcomeViewState extends ConsumerState<WelcomeView> {
         Column(
           children: [
             Text(
-              'Welcome to Elisha',
+              'Welcome to Buka Ea Khale',
               style: Theme.of(context).textTheme.headline4?.copyWith(fontSize: 27),
             ),
             const SizedBox(height: 10),

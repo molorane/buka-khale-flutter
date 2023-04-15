@@ -174,8 +174,9 @@ class BibleRepository {
     Translation(id: 1, name: 'American Standard-ASV1901', abbreviation: 'asv', language: 'english'),
     Translation(id: 2, name: 'Bible in Basic English', abbreviation: 'bbe', language: 'english'),
     Translation(id: 3, name: 'King James Version', abbreviation: 'kjv', language: 'english'),
-    Translation(id: 4, name: 'World English Bible', abbreviation: 'web', language: 'english'),
-    Translation(id: 5, name: 'Young\'s Literal Translation', abbreviation: 'ylt', language: 'english'),
+    Translation(id: 4, name: 'King James Version', abbreviation: 'kjv', language: 'english'),
+    Translation(id: 5, name: 'Southern Sesotho Bible', abbreviation: 'sso', language: 'sesotho'),
+    Translation(id: 6, name: 'Young\'s Literal Translation', abbreviation: 'ylt', language: 'english'),
   ];
 
   List<Translation> get translations => _translations;

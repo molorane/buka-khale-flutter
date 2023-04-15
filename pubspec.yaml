@@ -124,6 +124,7 @@ flutter:
     - backend/asv.json
     - backend/bbe.json
     - backend/kjv.json
+    - backend/sso.json
     - backend/web.json
     - backend/ylt.json
 

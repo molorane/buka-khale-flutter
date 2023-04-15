@@ -102,17 +102,9 @@ class _HomeViewState extends ConsumerState<HomeView> {
     return Column(
       children: [
         const StreaksCard(marginalPadding: false),
-        if (isSunday) const SizedBox(height: 17),
+        const SizedBox(height: 17),
         const VerseOfTheDayCard(),
-        homeViewBannerAdIsLoaded ? const SizedBox(height: 17) : const SizedBox(height: 17),
-        if (homeViewBannerAdIsLoaded)
-          Container(
-            padding: const EdgeInsets.only(bottom: 10),
-            width: _ad!.size.width.toDouble(),
-            height: _ad!.size.height.toDouble(),
-            child: AdWidget(ad: _ad!),
-          ),
-        if (homeViewBannerAdIsLoaded) const SizedBox(height: 17),
+        const SizedBox(height: 17),
         const DailyDevotionalCard(),
         const SizedBox(height: 17),
       ],

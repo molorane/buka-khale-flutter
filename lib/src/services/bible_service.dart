@@ -65,7 +65,7 @@ class BibleService {
         return books;
       }
     } on DioError catch (e) {
-      await FirebaseCrashlytics.instance.recordError(e, e.stackTrace);
+      //await FirebaseCrashlytics.instance.recordError(e, e.stackTrace);
       throw Exceptions.fromDioError(e);
     }
   }
@@ -98,7 +98,7 @@ class BibleService {
 
       return chapter;
     } on DioError catch (e) {
-      await FirebaseCrashlytics.instance.recordError(e, e.stackTrace);
+      //await FirebaseCrashlytics.instance.recordError(e, e.stackTrace);
       throw Exceptions.fromDioError(e);
     }
   }
@@ -130,7 +130,7 @@ class BibleService {
 
       return chapters;
     } on DioError catch (e) {
-      await FirebaseCrashlytics.instance.recordError(e, e.stackTrace);
+      //await FirebaseCrashlytics.instance.recordError(e, e.stackTrace);
       throw Exceptions.fromDioError(e);
     }
   }
@@ -191,7 +191,7 @@ class BibleService {
         return verses;
       }
     } on DioError catch (e) {
-      await FirebaseCrashlytics.instance.recordError(e, e.stackTrace);
+      //await FirebaseCrashlytics.instance.recordError(e, e.stackTrace);
       throw Exceptions.fromDioError(e);
     }
   }

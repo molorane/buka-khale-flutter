@@ -40,6 +40,7 @@ class LastTranslationBookChapterRepository extends StateNotifier<TranslationBook
     state.translationAbb = abb;
     translationID = number.toString();
     translationAbb = abb;
+    print(state);
     await _saveLastChapterAndTranslation();
   }
 

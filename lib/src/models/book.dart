@@ -67,6 +67,15 @@ class Book {
     );
   }
 
+  factory Book.fromDB(Map<dynamic, dynamic> map) {
+    return Book(
+      id: map['book_id'],
+      name: map['book'],
+      testament: map['testament'],
+      chapters: [],
+    );
+  }
+
   String toJson() => json.encode(toMap());
 
   factory Book.fromJson(String source) => Book.fromMap(json.decode(source));

@@ -144,7 +144,7 @@ class _VerseOfTheDayCardState extends ConsumerState<VerseOfTheDayCard> {
 
   Widget _header(BuildContext context, Color bgColor) {
     return Text(
-      'Verse of the Day',
+      'Temana ea Letsatsi',
       style: Theme.of(context).textTheme.headline4?.copyWith(fontWeight: FontWeight.bold),
     );
   }

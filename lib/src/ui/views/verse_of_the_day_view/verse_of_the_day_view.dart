@@ -177,7 +177,7 @@ class _VerseOfTheDayViewState extends ConsumerState<VerseOfTheDayView> {
         title: Padding(
           padding: const EdgeInsets.symmetric(vertical: kSmallPadding),
           child: Text(
-            'Verse of the Day',
+            'Temana ea Letsatsi',
             style: Theme.of(context).textTheme.headline4?.copyWith(
                   color: CantonColors.white,
                   fontSize: 17,

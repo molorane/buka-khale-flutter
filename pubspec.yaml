@@ -48,6 +48,8 @@ dependencies:
   # Storage
   hive: ^2.0.4
   hive_flutter: ^1.1.0
+  sqflite: ^2.2.6
+  path_provider: ^2.0.14
 
   # Other
   intl: ^0.17.0
@@ -127,6 +129,9 @@ flutter:
     - backend/sso.json
     - backend/web.json
     - backend/ylt.json
+
+    # sqlite
+    - assets/sso.db
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

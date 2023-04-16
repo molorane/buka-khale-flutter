@@ -128,13 +128,13 @@ class _IntroductionViewState extends ConsumerState<IntroductionView> {
         pages: [
           PageViewModel(
             title: 'Read the Bible',
-            body: 'Read 5 versions of the Bible, Bookmark chapters and Favorite verses.',
+            body: 'Read 2 versions of the Bible, Bookmark chapters and Favorite verses.',
             image: _buildImage(LineAwesomeIcons.bible),
             decoration: _pageDecoration(),
           ),
           PageViewModel(
             title: 'Interactive Features',
-            body: 'Streaks, Verse of the Day, and more!',
+            body: 'Streaks, Temana ea Letsatsi, and more!',
             image: _buildImage(LineAwesomeIcons.hand_pointing_up),
             decoration: _pageDecoration(),
           ),

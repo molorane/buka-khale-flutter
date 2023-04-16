@@ -93,6 +93,17 @@ class Verse {
     );
   }
 
+  factory Verse.fromDB(Map<dynamic, dynamic> map) {
+    return Verse(
+      id: map['id'],
+      chapterId: map['chapter'],
+      verseId: map['verse'],
+      text: map['scripture'],
+      book: Book.fromDB(map),
+      favorite: false,
+    );
+  }
+
   factory Verse.fromMapFromVOTD(Map<String, dynamic> map, int verseNum) {
     final data = map['1'] as Map<String, dynamic>;
 

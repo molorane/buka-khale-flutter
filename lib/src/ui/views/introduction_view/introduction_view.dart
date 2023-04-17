@@ -1,5 +1,5 @@
 /*
-Elisha iOS & Android App
+Sso iOS & Android App
 Copyright (C) 2022 Carlton Aikins
 
 This program is free software: you can redistribute it and/or modify
@@ -18,20 +18,18 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import 'dart:io';
 
-import 'package:flutter/cupertino.dart';
-
-import 'package:canton_ui/canton_ui.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:intl/intl.dart';
-import 'package:introduction_screen/introduction_screen.dart';
-import 'package:line_awesome_flutter/line_awesome_flutter.dart';
-
 import 'package:buka_ea_khale/src/models/local_user.dart';
 import 'package:buka_ea_khale/src/providers/local_user_repository_provider.dart';
 import 'package:buka_ea_khale/src/ui/views/current_view.dart';
 import 'package:buka_ea_khale/src/ui/views/introduction_view/components/birth_date_input.dart';
 import 'package:buka_ea_khale/src/ui/views/introduction_view/components/first_name_input.dart';
 import 'package:buka_ea_khale/src/ui/views/introduction_view/components/last_name_input.dart';
+import 'package:canton_ui/canton_ui.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:intl/intl.dart';
+import 'package:introduction_screen/introduction_screen.dart';
+import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 
 class IntroductionView extends ConsumerStatefulWidget {
   const IntroductionView({Key? key}) : super(key: key);
@@ -64,8 +62,10 @@ class _IntroductionViewState extends ConsumerState<IntroductionView> {
 
   PageDecoration _pageDecoration() {
     return PageDecoration(
-      titleTextStyle: const TextStyle(fontSize: 24.0, fontWeight: FontWeight.w700),
-      bodyTextStyle: const TextStyle(fontSize: 18.0, fontWeight: FontWeight.w500),
+      titleTextStyle:
+          const TextStyle(fontSize: 24.0, fontWeight: FontWeight.w700),
+      bodyTextStyle:
+          const TextStyle(fontSize: 18.0, fontWeight: FontWeight.w500),
       descriptionPadding: const EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 16.0),
       pageColor: CantonMethods.alternateCanvasColorType2(context),
       imagePadding: EdgeInsets.zero,
@@ -128,7 +128,8 @@ class _IntroductionViewState extends ConsumerState<IntroductionView> {
         pages: [
           PageViewModel(
             title: 'Read the Bible',
-            body: 'Read 2 versions of the Bible, Bookmark chapters and Favorite verses.',
+            body:
+                'Read 2 versions of the Bible, Bookmark chapters and Favorite verses.',
             image: _buildImage(LineAwesomeIcons.bible),
             decoration: _pageDecoration(),
           ),
@@ -217,7 +218,9 @@ class _WelcomeViewState extends ConsumerState<WelcomeView> {
             LastNameInput(lastNameController: _lastNameController),
           ],
         ),
-        BirthDateInput(birthDateText: birthDateText, showBirthDatePicker: _showBirthDatePicker),
+        BirthDateInput(
+            birthDateText: birthDateText,
+            showBirthDatePicker: _showBirthDatePicker),
         _doneButton(),
         const SizedBox(height: 30),
         _validate
@@ -238,18 +241,21 @@ class _WelcomeViewState extends ConsumerState<WelcomeView> {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         SizedBox(height: MediaQuery.of(context).size.height / 9),
-        Image.asset('assets/icon/app.png', height: MediaQuery.of(context).size.height / 17),
+        Image.asset('assets/icon/app.png',
+            height: MediaQuery.of(context).size.height / 17),
         const SizedBox(height: 20),
         Column(
           children: [
             Text(
               'Welcome to Buka Ea Khale',
-              style: Theme.of(context).textTheme.headline4?.copyWith(fontSize: 27),
+              style:
+                  Theme.of(context).textTheme.headline4?.copyWith(fontSize: 27),
             ),
             const SizedBox(height: 10),
             Text(
               'Please fill out the following fields.',
-              style: Theme.of(context).textTheme.headline6?.copyWith(fontSize: 24),
+              style:
+                  Theme.of(context).textTheme.headline6?.copyWith(fontSize: 24),
             ),
           ],
         ),
@@ -269,7 +275,9 @@ class _WelcomeViewState extends ConsumerState<WelcomeView> {
         ),
         ConstrainedBox(
           constraints: const BoxConstraints(maxWidth: 650),
-          child: BirthDateInput(birthDateText: birthDateText, showBirthDatePicker: _showBirthDatePicker),
+          child: BirthDateInput(
+              birthDateText: birthDateText,
+              showBirthDatePicker: _showBirthDatePicker),
         ),
         _doneButton(),
         const SizedBox(height: 30),
@@ -308,7 +316,8 @@ class _WelcomeViewState extends ConsumerState<WelcomeView> {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Container(
-                  padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 27),
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 20, horizontal: 27),
                   child: Text(
                     'Select Your Birthday',
                     style: Theme.of(context).textTheme.headline5,
@@ -345,7 +354,8 @@ class _WelcomeViewState extends ConsumerState<WelcomeView> {
                     containerWidth: 100,
                     containerHeight: 30,
                     padding: EdgeInsets.zero,
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30)),
                     onPressed: () {
                       Navigator.of(context).pop();
                     },
@@ -363,15 +373,18 @@ class _WelcomeViewState extends ConsumerState<WelcomeView> {
           firstDate: firstDate,
           lastDate: lastDate,
           builder: (context, child) {
-            final isDarkMode = MediaQuery.of(context).platformBrightness == Brightness.dark;
+            final isDarkMode =
+                MediaQuery.of(context).platformBrightness == Brightness.dark;
 
             return Theme(
               data: Theme.of(context).copyWith(
                 brightness: Brightness.light,
                 colorScheme: ColorScheme.light(
                   primary: Theme.of(context).primaryColor,
-                  onPrimary: isDarkMode ? CantonColors.black : CantonColors.white,
-                  onSurface: isDarkMode ? CantonColors.white : CantonColors.black,
+                  onPrimary:
+                      isDarkMode ? CantonColors.black : CantonColors.white,
+                  onSurface:
+                      isDarkMode ? CantonColors.white : CantonColors.black,
                 ),
               ),
               child: child!,
@@ -397,7 +410,8 @@ class _WelcomeViewState extends ConsumerState<WelcomeView> {
         padding: EdgeInsets.zero,
         borderRadius: BorderRadius.circular(25),
         onPressed: () async {
-          if ([_firstNameController.text, _lastNameController.text].contains('')) {
+          if ([_firstNameController.text, _lastNameController.text]
+              .contains('')) {
             setState(() {
               _validate = true;
             });

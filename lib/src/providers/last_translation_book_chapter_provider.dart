@@ -1,5 +1,5 @@
 /*
-Elisha iOS & Android App
+Sso iOS & Android App
 Copyright (C) 2022 Carlton Aikins
 
 This program is free software: you can redistribute it and/or modify
@@ -16,12 +16,11 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-
 import 'package:buka_ea_khale/src/models/translation_book_chapter.dart';
 import 'package:buka_ea_khale/src/repositories/last_translation_book_chapter_repository.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-final localRepositoryProvider =
-    StateNotifierProvider<LastTranslationBookChapterRepository, TranslationBookChapter>((ref) {
+final localRepositoryProvider = StateNotifierProvider<
+    LastTranslationBookChapterRepository, TranslationBookChapter>((ref) {
   return LastTranslationBookChapterRepository();
 });

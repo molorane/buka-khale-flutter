@@ -1,5 +1,5 @@
 /*
-Elisha iOS & Android App
+Sso iOS & Android App
 Copyright (C) 2022 Carlton Aikins
 
 This program is free software: you can redistribute it and/or modify
@@ -18,9 +18,8 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import 'dart:convert';
 
-import 'package:flutter/foundation.dart';
-
 import 'package:buka_ea_khale/src/models/verse.dart';
+import 'package:flutter/foundation.dart';
 
 class Chapter {
   int? id;
@@ -79,10 +78,12 @@ class Chapter {
 
   String toJson() => json.encode(toMap());
 
-  factory Chapter.fromJson(String source) => Chapter.fromMap(json.decode(source));
+  factory Chapter.fromJson(String source) =>
+      Chapter.fromMap(json.decode(source));
 
   @override
-  String toString() => 'Chapter(id: $id, number: $number, verses: $verses, bookmarked: $bookmarked)';
+  String toString() =>
+      'Chapter(id: $id, number: $number, verses: $verses, bookmarked: $bookmarked)';
 
   @override
   bool operator ==(Object other) {
@@ -97,11 +98,17 @@ class Chapter {
   }
 
   @override
-  int get hashCode => id.hashCode ^ number.hashCode ^ translation.hashCode ^ verses.hashCode ^ bookmarked.hashCode;
+  int get hashCode =>
+      id.hashCode ^
+      number.hashCode ^
+      translation.hashCode ^
+      verses.hashCode ^
+      bookmarked.hashCode;
 }
 
 class ChapterId {
   int? id;
+
   ChapterId({this.id});
 
   ChapterId copyWith({
@@ -126,7 +133,8 @@ class ChapterId {
 
   String toJson() => json.encode(toMap());
 
-  factory ChapterId.fromJson(String source) => ChapterId.fromMap(json.decode(source));
+  factory ChapterId.fromJson(String source) =>
+      ChapterId.fromMap(json.decode(source));
 
   @override
   String toString() => 'ChapterId(id: $id)';

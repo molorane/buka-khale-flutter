@@ -1,5 +1,5 @@
 /*
-Elisha iOS & Android App
+Sso iOS & Android App
 Copyright (C) 2022 Carlton Aikins
 
 This program is free software: you can redistribute it and/or modify
@@ -60,7 +60,8 @@ class LocalUser {
 
   String toJson() => json.encode(toMap());
 
-  factory LocalUser.fromJson(String source) => LocalUser.fromMap(json.decode(source));
+  factory LocalUser.fromJson(String source) =>
+      LocalUser.fromMap(json.decode(source));
 
   @override
   String toString() {

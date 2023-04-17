@@ -1,5 +1,5 @@
 /*
-Elisha iOS & Android App
+Sso iOS & Android App
 Copyright (C) 2022 Carlton Aikins
 
 This program is free software: you can redistribute it and/or modify
@@ -18,18 +18,17 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import 'dart:convert';
 
-import 'package:flutter/material.dart';
-
-import 'package:hive/hive.dart';
-
 import 'package:buka_ea_khale/src/models/chapter.dart';
 import 'package:buka_ea_khale/src/models/verse.dart';
+import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
 
 class StudyToolsRepository extends ChangeNotifier {
   var _favoritedVerses = <Verse>[];
   var _bookmarkedChapters = <Chapter>[];
 
   List<Verse> get favoriteVerses => _favoritedVerses;
+
   List<Chapter> get bookmarkedChapters => _bookmarkedChapters.reversed.toList();
 
   Future<void> addFavoriteVerse(Verse verse) async {
@@ -65,23 +64,27 @@ class StudyToolsRepository extends ChangeNotifier {
   }
 
   Future<void> _saveData() async {
-    final box = Hive.box('elisha');
+    final box = Hive.box('sso');
 
-    List<String> favChapters = _favoritedVerses.map((e) => json.encode(e.toMap())).toList();
-    List<String> bkChapters = _bookmarkedChapters.map((e) => json.encode(e.toMap())).toList();
+    List<String> favChapters =
+        _favoritedVerses.map((e) => json.encode(e.toMap())).toList();
+    List<String> bkChapters =
+        _bookmarkedChapters.map((e) => json.encode(e.toMap())).toList();
 
-    List<String> studiedChapters = <String>{...favChapters, ...bkChapters}.toList();
+    List<String> studiedChapters =
+        <String>{...favChapters, ...bkChapters}.toList();
 
     await box.put('studied_chapters', studiedChapters);
   }
 
   void loadData() {
-    var box = Hive.box('elisha');
+    var box = Hive.box('sso');
 
     /// Removes all [Chapters] (s) from device.
     // box.delete('studied_chapters');
 
-    List<String> savedChapters = box.get('studied_chapters', defaultValue: <String>[]);
+    List<String> savedChapters =
+        box.get('studied_chapters', defaultValue: <String>[]);
     var maps = <Map<String, dynamic>>[];
 
     for (String item in savedChapters) {

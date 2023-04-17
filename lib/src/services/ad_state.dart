@@ -1,5 +1,5 @@
 /*
-Elisha iOS & Android App
+Sso iOS & Android App
 Copyright (C) 2022 Carlton Aikins
 
 This program is free software: you can redistribute it and/or modify
@@ -26,14 +26,20 @@ var votdViewBannerAdIsLoaded = false;
 
 class AdState {
   // iOS ad ids
-  static const _iosHomeViewBannerAdId = 'ca-app-pub-6026970342993334/4798379037';
-  static const _iosChurchViewBannerAdId = 'ca-app-pub-6026970342993334/8562928877';
-  static const _iosVotdViewBannerAdId = 'ca-app-pub-6026970342993334/4452474650';
+  static const _iosHomeViewBannerAdId =
+      'ca-app-pub-6026970342993334/4798379037';
+  static const _iosChurchViewBannerAdId =
+      'ca-app-pub-6026970342993334/8562928877';
+  static const _iosVotdViewBannerAdId =
+      'ca-app-pub-6026970342993334/4452474650';
 
   // Android ad ids
-  static const _androidHomeViewBannerAdId = 'ca-app-pub-6026970342993334/8364189149';
-  static const _androidChurchViewBannerAdId = 'ca-app-pub-6026970342993334/6049936860';
-  static const _androidVotdViewBannerAdId = 'ca-app-pub-6026970342993334/2331037330';
+  static const _androidHomeViewBannerAdId =
+      'ca-app-pub-6026970342993334/8364189149';
+  static const _androidChurchViewBannerAdId =
+      'ca-app-pub-6026970342993334/6049936860';
+  static const _androidVotdViewBannerAdId =
+      'ca-app-pub-6026970342993334/2331037330';
 
   String get homeViewbannerAdUnitId {
     if (Platform.isAndroid) {
@@ -60,7 +66,9 @@ class AdState {
   }
 
   final homeViewBannerAd = BannerAd(
-    adUnitId: Platform.isAndroid ? _androidHomeViewBannerAdId : _iosHomeViewBannerAdId,
+    adUnitId: Platform.isAndroid
+        ? _androidHomeViewBannerAdId
+        : _iosHomeViewBannerAdId,
     size: AdSize.banner,
     request: const AdRequest(),
     listener: BannerAdListener(
@@ -75,7 +83,9 @@ class AdState {
   );
 
   final churchViewBannerAd = BannerAd(
-    adUnitId: Platform.isAndroid ? _androidChurchViewBannerAdId : _iosChurchViewBannerAdId,
+    adUnitId: Platform.isAndroid
+        ? _androidChurchViewBannerAdId
+        : _iosChurchViewBannerAdId,
     size: AdSize.banner,
     request: const AdRequest(),
     listener: BannerAdListener(
@@ -90,7 +100,9 @@ class AdState {
   );
 
   final votdViewBannerAd = BannerAd(
-    adUnitId: Platform.isAndroid ? _androidVotdViewBannerAdId : _iosVotdViewBannerAdId,
+    adUnitId: Platform.isAndroid
+        ? _androidVotdViewBannerAdId
+        : _iosVotdViewBannerAdId,
     size: AdSize.banner,
     request: const AdRequest(),
     listener: BannerAdListener(

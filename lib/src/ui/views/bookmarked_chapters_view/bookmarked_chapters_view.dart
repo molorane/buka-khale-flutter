@@ -1,5 +1,5 @@
 /*
-Elisha iOS & Android App
+Sso iOS & Android App
 Copyright (C) 2022 Carlton Aikins
 
 This program is free software: you can redistribute it and/or modify
@@ -16,13 +16,12 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-import 'package:canton_ui/canton_ui.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-
 import 'package:buka_ea_khale/src/models/chapter.dart';
 import 'package:buka_ea_khale/src/providers/study_tools_repository_provider.dart';
 import 'package:buka_ea_khale/src/ui/views/bookmarked_chapters_view/components/bookmarked_chapter_card.dart';
 import 'package:buka_ea_khale/src/ui/views/bookmarked_chapters_view/components/bookmarked_chapters_view_header.dart';
+import 'package:canton_ui/canton_ui.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class BookmarkedChaptersView extends ConsumerStatefulWidget {
   const BookmarkedChaptersView({Key? key}) : super(key: key);
@@ -31,7 +30,8 @@ class BookmarkedChaptersView extends ConsumerStatefulWidget {
   _BookmarkedChaptersViewState createState() => _BookmarkedChaptersViewState();
 }
 
-class _BookmarkedChaptersViewState extends ConsumerState<BookmarkedChaptersView> {
+class _BookmarkedChaptersViewState
+    extends ConsumerState<BookmarkedChaptersView> {
   @override
   Widget build(BuildContext context) {
     return CantonScaffold(
@@ -52,40 +52,52 @@ class _BookmarkedChaptersViewState extends ConsumerState<BookmarkedChaptersView>
 
   Widget _bookmarkedChapters(BuildContext context) {
     return Expanded(
-      child: ref.watch(studyToolsRepositoryProvider).bookmarkedChapters.isNotEmpty
-          ? Container(
-              padding: const EdgeInsets.symmetric(horizontal: 17),
-              child: ConstrainedBox(
-                constraints: const BoxConstraints(maxWidth: 700),
-                child: ListView.separated(
-                  itemCount: ref.watch(studyToolsRepositoryProvider).bookmarkedChapters.length,
-                  separatorBuilder: (context, index) {
-                    return const Divider();
-                  },
-                  itemBuilder: (context, index) {
-                    return Column(
-                      children: [
-                        BookmarkedChapterCard(
-                          chapter: ref.watch(studyToolsRepositoryProvider).bookmarkedChapters[index],
-                          setState: setState,
-                          showBookmarkedChapterOptionsBottomSheet: _showBookmarkedChapterOptionsBottomSheet,
-                        ),
-                        if (index == ref.watch(studyToolsRepositoryProvider).bookmarkedChapters.length - 1)
-                          const Divider(),
-                      ],
-                    );
-                  },
-                ),
-              ),
-            )
-          : Center(
-              child: Text(
-                'No Bookmarked Chapters',
-                style: Theme.of(context).textTheme.headline5?.copyWith(
-                      color: Theme.of(context).colorScheme.secondaryVariant,
+      child:
+          ref.watch(studyToolsRepositoryProvider).bookmarkedChapters.isNotEmpty
+              ? Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 17),
+                  child: ConstrainedBox(
+                    constraints: const BoxConstraints(maxWidth: 700),
+                    child: ListView.separated(
+                      itemCount: ref
+                          .watch(studyToolsRepositoryProvider)
+                          .bookmarkedChapters
+                          .length,
+                      separatorBuilder: (context, index) {
+                        return const Divider();
+                      },
+                      itemBuilder: (context, index) {
+                        return Column(
+                          children: [
+                            BookmarkedChapterCard(
+                              chapter: ref
+                                  .watch(studyToolsRepositoryProvider)
+                                  .bookmarkedChapters[index],
+                              setState: setState,
+                              showBookmarkedChapterOptionsBottomSheet:
+                                  _showBookmarkedChapterOptionsBottomSheet,
+                            ),
+                            if (index ==
+                                ref
+                                        .watch(studyToolsRepositoryProvider)
+                                        .bookmarkedChapters
+                                        .length -
+                                    1)
+                              const Divider(),
+                          ],
+                        );
+                      },
                     ),
-              ),
-            ),
+                  ),
+                )
+              : Center(
+                  child: Text(
+                    'No Bookmarked Chapters',
+                    style: Theme.of(context).textTheme.headline5?.copyWith(
+                          color: Theme.of(context).colorScheme.secondaryVariant,
+                        ),
+                  ),
+                ),
     );
   }
 
@@ -128,7 +140,9 @@ class _BookmarkedChaptersViewState extends ConsumerState<BookmarkedChaptersView>
                         textColor: Theme.of(context).colorScheme.error,
                         padding: EdgeInsets.zero,
                         onPressed: () async {
-                          await ref.read(studyToolsRepositoryProvider.notifier).removeBookmarkChapter(chapter);
+                          await ref
+                              .read(studyToolsRepositoryProvider.notifier)
+                              .removeBookmarkChapter(chapter);
                           Navigator.pop(context);
 
                           setState(() {});

@@ -1,5 +1,5 @@
 /*
-Elisha iOS & Android App
+Sso iOS & Android App
 Copyright (C) 2022 Carlton Aikins
 
 This program is free software: you can redistribute it and/or modify
@@ -29,7 +29,7 @@ class FavoriteVersesViewHeader extends ConsumerWidget {
         Container(
           padding: const EdgeInsets.only(top: 10),
           child: const ViewHeaderTwo(
-            title: 'Favorite Verses',
+            title: 'Temana tsa thatohatsi',
             backButton: true,
           ),
         ),

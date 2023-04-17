@@ -1,5 +1,5 @@
 /*
-Elisha iOS & Android App
+Sso iOS & Android App
 Copyright (C) 2022 Carlton Aikins
 
 This program is free software: you can redistribute it and/or modify
@@ -16,12 +16,11 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-import 'package:canton_ui/canton_ui.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-
 import 'package:buka_ea_khale/src/providers/study_tools_repository_provider.dart';
 import 'package:buka_ea_khale/src/ui/views/favorite_verses_view/components/favorite_verse_card.dart';
 import 'package:buka_ea_khale/src/ui/views/favorite_verses_view/components/favorite_verses_view_header.dart';
+import 'package:canton_ui/canton_ui.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class FavoriteVersesView extends ConsumerStatefulWidget {
   const FavoriteVersesView({Key? key}) : super(key: key);
@@ -49,7 +48,11 @@ class _FavoriteVersesViewState extends ConsumerState<FavoriteVersesView> {
   }
 
   Widget _favoriteVerses(BuildContext context) {
-    final list = ref.watch(studyToolsRepositoryProvider).favoriteVerses.reversed.toList();
+    final list = ref
+        .watch(studyToolsRepositoryProvider)
+        .favoriteVerses
+        .reversed
+        .toList();
 
     return Expanded(
       child: list.isNotEmpty

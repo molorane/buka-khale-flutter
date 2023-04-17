@@ -1,5 +1,5 @@
 /*
-Elisha iOS & Android App
+Sso iOS & Android App
 Copyright (C) 2022 Carlton Aikins
 
 This program is free software: you can redistribute it and/or modify
@@ -18,14 +18,12 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import 'dart:io';
 
-import 'package:flutter/services.dart';
-
-import 'package:canton_ui/canton_ui.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-
 import 'package:buka_ea_khale/src/providers/local_user_repository_provider.dart';
 import 'package:buka_ea_khale/src/ui/views/current_view.dart';
 import 'package:buka_ea_khale/src/ui/views/introduction_view/introduction_view.dart';
+import 'package:canton_ui/canton_ui.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class LoginWrapper extends ConsumerStatefulWidget {
   const LoginWrapper({Key? key}) : super(key: key);
@@ -45,7 +43,8 @@ class _LoginWrapperState extends ConsumerState<LoginWrapper> {
   Widget build(BuildContext context) {
     final count = ref.read(localUserRepositoryProvider).getLoginCount;
 
-    final isDarkMode = MediaQuery.of(context).platformBrightness == Brightness.dark;
+    final isDarkMode =
+        MediaQuery.of(context).platformBrightness == Brightness.dark;
 
     Color statusBarColor() {
       if (Platform.isIOS) {

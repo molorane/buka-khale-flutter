@@ -1,5 +1,5 @@
 /*
-Elisha iOS & Android App
+Sso iOS & Android App
 Copyright (C) 2022 Carlton Aikins
 
 This program is free software: you can redistribute it and/or modify
@@ -16,16 +16,14 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-import 'package:flutter/material.dart';
-
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-
 import 'package:buka_ea_khale/src/models/book.dart';
 import 'package:buka_ea_khale/src/models/chapter.dart';
 import 'package:buka_ea_khale/src/models/translation.dart';
 import 'package:buka_ea_khale/src/providers/bible_books_provider.dart';
 import 'package:buka_ea_khale/src/providers/bible_chapters_provider.dart';
 import 'package:buka_ea_khale/src/providers/last_translation_book_chapter_provider.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class BibleRepository {
   BibleRepository();
@@ -73,7 +71,7 @@ class BibleRepository {
     40: 'Mattheu',
     41: 'Mareka',
     42: 'Luka',
-    43: 'Johahhe',
+    43: 'Johanne',
     44: 'Liketso',
     45: 'Baroma',
     46: '1 Bakorinthe',
@@ -171,12 +169,16 @@ class BibleRepository {
   };
 
   final _translations = <Translation>[
-    Translation(id: 1, name: 'American Standard-ASV1901', abbreviation: 'asv', language: 'english'),
-    Translation(id: 2, name: 'Bible in Basic English', abbreviation: 'bbe', language: 'english'),
-    Translation(id: 3, name: 'King James Version', abbreviation: 'kjv', language: 'english'),
-    Translation(id: 4, name: 'World English Bible', abbreviation: 'web', language: 'english'),
-    Translation(id: 5, name: 'Young\'s Literal Translation', abbreviation: 'ylt', language: 'english'),
-    Translation(id: 6, name: 'Southern Sesotho Bible', abbreviation: 'sso', language: 'sesotho')
+    Translation(
+        id: 1,
+        name: 'King James Version',
+        abbreviation: 'kjv',
+        language: 'english'),
+    Translation(
+        id: 2,
+        name: 'Southern Sesotho Bible',
+        abbreviation: 'sso',
+        language: 'sesotho')
   ];
 
   List<Translation> get translations => _translations;
@@ -199,9 +201,14 @@ class BibleRepository {
         return 'New';
       }
 
-      final chapters = List<ChapterId>.generate(newMap[item.key]!, (i) => ChapterId(id: i + 1));
+      final chapters = List<ChapterId>.generate(
+          newMap[item.key]!, (i) => ChapterId(id: i + 1));
 
-      final book = Book(id: item.key, chapters: chapters, name: item.value, testament: testament());
+      final book = Book(
+          id: item.key,
+          chapters: chapters,
+          name: item.value,
+          testament: testament());
 
       books.add(book);
     }
@@ -211,7 +218,8 @@ class BibleRepository {
 
   bool _isLastChapterInBook(WidgetRef ref) {
     bool bookChapterBool(int book, int chapter) {
-      return (ref.watch(localRepositoryProvider).chapter == chapter && ref.watch(localRepositoryProvider).book == book);
+      return (ref.watch(localRepositoryProvider).chapter == chapter &&
+          ref.watch(localRepositoryProvider).book == book);
     }
 
     if (bookChapterBool(1, 50) ||
@@ -292,14 +300,16 @@ class BibleRepository {
     }
 
     bool isGenesisOne() {
-      if (ref.watch(localRepositoryProvider).book == 1 && ref.watch(localRepositoryProvider).chapter == 1) {
+      if (ref.watch(localRepositoryProvider).book == 1 &&
+          ref.watch(localRepositoryProvider).chapter == 1) {
         return true;
       }
       return false;
     }
 
     bool isRevelationTwentyTwo() {
-      if (ref.watch(localRepositoryProvider).book == 66 && ref.watch(localRepositoryProvider).chapter == 22) {
+      if (ref.watch(localRepositoryProvider).book == 66 &&
+          ref.watch(localRepositoryProvider).chapter == 22) {
         return true;
       }
       return false;
@@ -321,8 +331,12 @@ class BibleRepository {
         bookID = newBibleBook.toString();
         chapterID = newBibleChapter.toString();
 
-        await ref.read(localRepositoryProvider.notifier).changeBibleBook(newBibleBook);
-        await ref.read(localRepositoryProvider.notifier).changeBibleChapter(newBibleChapter);
+        await ref
+            .read(localRepositoryProvider.notifier)
+            .changeBibleBook(newBibleBook);
+        await ref
+            .read(localRepositoryProvider.notifier)
+            .changeBibleChapter(newBibleChapter);
 
         ref.refresh(bibleChaptersProvider);
       } else {
@@ -341,8 +355,12 @@ class BibleRepository {
         bookID = newBibleBook.toString();
         chapterID = newBibleChapter.toString();
 
-        await ref.read(localRepositoryProvider.notifier).changeBibleBook(newBibleBook);
-        await ref.read(localRepositoryProvider.notifier).changeBibleChapter(newBibleChapter);
+        await ref
+            .read(localRepositoryProvider.notifier)
+            .changeBibleBook(newBibleBook);
+        await ref
+            .read(localRepositoryProvider.notifier)
+            .changeBibleChapter(newBibleChapter);
 
         ref.refresh(bibleChaptersProvider);
       } else {
@@ -352,18 +370,23 @@ class BibleRepository {
   }
 
   Future<void> changeChapter(WidgetRef ref, int book, int chapter) async {
-    if (ref.watch(localRepositoryProvider).book! == book && ref.watch(localRepositoryProvider).chapter! == chapter) {
+    if (ref.watch(localRepositoryProvider).book! == book &&
+        ref.watch(localRepositoryProvider).chapter! == chapter) {
       DoNothingAction();
     } else {
       if (ref.watch(localRepositoryProvider).book! == book) {
         chapterID = chapter.toString();
-        await ref.read(localRepositoryProvider.notifier).changeBibleChapter(chapter);
+        await ref
+            .read(localRepositoryProvider.notifier)
+            .changeBibleChapter(chapter);
       } else {
         bookID = book.toString();
         chapterID = chapter.toString();
 
         await ref.read(localRepositoryProvider.notifier).changeBibleBook(book);
-        await ref.read(localRepositoryProvider.notifier).changeBibleChapter(chapter);
+        await ref
+            .read(localRepositoryProvider.notifier)
+            .changeBibleChapter(chapter);
       }
 
       ref.refresh(bibleChaptersProvider);

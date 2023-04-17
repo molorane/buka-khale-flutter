@@ -1,5 +1,5 @@
 /*
-Elisha iOS & Android App
+Sso iOS & Android App
 Copyright (C) 2022 Carlton Aikins
 
 This program is free software: you can redistribute it and/or modify
@@ -18,9 +18,8 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import 'dart:convert';
 
-import 'package:flutter/foundation.dart';
-
 import 'package:buka_ea_khale/src/models/reading.dart';
+import 'package:flutter/foundation.dart';
 
 class DailyReading {
   String? name;
@@ -63,13 +62,15 @@ class DailyReading {
       name: map['name'],
       lectionary: map['lectionary'],
       date: DateTime.fromMillisecondsSinceEpoch(map['date']),
-      readings: List<Reading>.from(map['readings']?.map((x) => Reading.fromMap(x))),
+      readings:
+          List<Reading>.from(map['readings']?.map((x) => Reading.fromMap(x))),
     );
   }
 
   String toJson() => json.encode(toMap());
 
-  factory DailyReading.fromJson(String source) => DailyReading.fromMap(json.decode(source));
+  factory DailyReading.fromJson(String source) =>
+      DailyReading.fromMap(json.decode(source));
 
   @override
   String toString() {
@@ -89,6 +90,9 @@ class DailyReading {
 
   @override
   int get hashCode {
-    return name.hashCode ^ lectionary.hashCode ^ date.hashCode ^ readings.hashCode;
+    return name.hashCode ^
+        lectionary.hashCode ^
+        date.hashCode ^
+        readings.hashCode;
   }
 }

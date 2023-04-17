@@ -1,5 +1,5 @@
 /*
-Elisha iOS & Android App
+Sso iOS & Android App
 Copyright (C) 2022 Carlton Aikins
 
 This program is free software: you can redistribute it and/or modify
@@ -17,7 +17,6 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
 import 'package:flutter/material.dart';
-
 import 'package:hive/hive.dart';
 
 enum ReaderColors {
@@ -37,10 +36,15 @@ class ReaderSettingsRepository extends ChangeNotifier {
   var _readerColor = ReaderColors.dyn;
 
   double get bodyTextSize => _bodyTextSize;
+
   double get bodyTextHeight => _bodyTextHeight;
+
   double get verseNumberSize => _verseNumberSize;
+
   double get verseNumberHeight => _verseNumberHeight;
+
   String get typeFace => _typeFace;
+
   ReaderColors get readerColor => _readerColor;
 
   Future<void> incrementBodyTextSize() async {
@@ -104,7 +108,7 @@ class ReaderSettingsRepository extends ChangeNotifier {
   }
 
   Future<void> _saveData() async {
-    final box = Hive.box('elisha');
+    final box = Hive.box('sso');
 
     final settings = <String, dynamic>{
       'bodyTextSize': _bodyTextSize,
@@ -119,7 +123,7 @@ class ReaderSettingsRepository extends ChangeNotifier {
   }
 
   void loadData() {
-    final box = Hive.box('elisha');
+    final box = Hive.box('sso');
 
     /// Removes user from device.
     // box.delete('reader_settings');

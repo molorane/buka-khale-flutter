@@ -3,23 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>304606692724-mlumvpstt4vpl3napj4krku13svbnudh.apps.googleusercontent.com</string>
+	<string>522843723168-75rt87pl7bvev0k7fsqrtlhuci6uhj51.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.304606692724-mlumvpstt4vpl3napj4krku13svbnudh</string>
-	<key>ANDROID_CLIENT_ID</key>
-	<string>304606692724-pivath4gfe96e0gnh08q252c2bfjvdrg.apps.googleusercontent.com</string>
+	<string>com.googleusercontent.apps.522843723168-75rt87pl7bvev0k7fsqrtlhuci6uhj51</string>
 	<key>API_KEY</key>
-	<string>AIzaSyBqQux_CWTDW0WE-kR3jznuXStzfhNToFE</string>
+	<string>AIzaSyBXJaJ-yuK-bkTLzw-XpkfHTWBjoq4Iquo</string>
 	<key>GCM_SENDER_ID</key>
-	<string>304606692724</string>
+	<string>522843723168</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.elisha.app</string>
+	<string>com.blessing.flutter.sso</string>
 	<key>PROJECT_ID</key>
-	<string>elisha-17e64</string>
+	<string>sesothobible-5115f</string>
 	<key>STORAGE_BUCKET</key>
-	<string>elisha-17e64.appspot.com</string>
+	<string>sesothobible-5115f.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -31,6 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:304606692724:ios:2d39799e1f9131836c5821</string>
+	<string>1:522843723168:ios:021dc5145856c3366f00c5</string>
 </dict>
 </plist>

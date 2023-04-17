@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.elisha.app">
+    package="com.blessing.flutter.sso">
    <application
-        android:label="Elisha"
+        android:label="SSO"
         android:icon="@mipmap/ic_launcher">
 
         <meta-data

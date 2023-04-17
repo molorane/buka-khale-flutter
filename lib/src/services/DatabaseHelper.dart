@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'dart:io' as io;
 
 import 'package:buka_ea_khale/src/models/book.dart';
@@ -77,12 +76,12 @@ class DatabaseHelper {
 
       final books = await getBooks(bookId);
 
-      final List<Map> bookText = await _database!
-          .query("book", where: 'book_num = ? AND chapter = ?', whereArgs: [bookId, chapterId]);
+      final List<Map> bookText = await _database!.query("book",
+          where: 'book_num = ? AND chapter = ?',
+          whereArgs: [bookId, chapterId]);
 
       final verses = {
-        for (var item in bookText)
-          Verse.fromDB(item).copyWith(book: books[0])
+        for (var item in bookText) Verse.fromDB(item).copyWith(book: books[0])
       }.toList();
 
       final chapter = Chapter(
@@ -138,14 +137,14 @@ class DatabaseHelper {
     try {
       await loadDb();
 
-      final List<Map> bookText = await _database!
-          .query("book", where: 'book_num = ? AND chapter = ?', whereArgs: [bookId, chapterId]);
+      final List<Map> bookText = await _database!.query("book",
+          where: 'book_num = ? AND chapter = ?',
+          whereArgs: [bookId, chapterId]);
 
       final books = await getBooks(bookId);
 
       final verses = {
-        for (var item in bookText)
-          Verse.fromDB(item).copyWith(book: books[0])
+        for (var item in bookText) Verse.fromDB(item).copyWith(book: books[0])
       }.toList();
 
       return verses;

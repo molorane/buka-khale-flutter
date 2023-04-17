@@ -1,5 +1,5 @@
 /*
-Elisha iOS & Android App
+Sso iOS & Android App
 Copyright (C) 2022 Carlton Aikins
 
 This program is free software: you can redistribute it and/or modify
@@ -16,10 +16,9 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
+import 'package:buka_ea_khale/src/providers/local_user_repository_provider.dart';
 import 'package:canton_ui/canton_ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
-import 'package:buka_ea_khale/src/providers/local_user_repository_provider.dart';
 
 class ChangeFirstNameCard extends ConsumerWidget {
   const ChangeFirstNameCard({Key? key}) : super(key: key);
@@ -29,7 +28,8 @@ class ChangeFirstNameCard extends ConsumerWidget {
     final _controller = TextEditingController();
 
     String currentNameStr() {
-      return 'Current First Name: ' + ref.watch(localUserRepositoryProvider).getUser.firstName;
+      return 'Current First Name: ' +
+          ref.watch(localUserRepositoryProvider).getUser.firstName;
     }
 
     return CantonExpansionTile(
@@ -72,11 +72,16 @@ class ChangeFirstNameCard extends ConsumerWidget {
                     containerWidth: 100,
                     containerHeight: 30,
                     padding: EdgeInsets.zero,
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30)),
                     onPressed: () {
-                      final updatedUser =
-                          ref.read(localUserRepositoryProvider).getUser.copyWith(firstName: _controller.text);
-                      ref.read(localUserRepositoryProvider).updateUser(updatedUser);
+                      final updatedUser = ref
+                          .read(localUserRepositoryProvider)
+                          .getUser
+                          .copyWith(firstName: _controller.text);
+                      ref
+                          .read(localUserRepositoryProvider)
+                          .updateUser(updatedUser);
                       Navigator.of(context).pop();
                     },
                   ),

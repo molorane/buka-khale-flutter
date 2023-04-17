@@ -1,5 +1,5 @@
 /*
-Elisha iOS & Android App
+Sso iOS & Android App
 Copyright (C) 2022 Carlton Aikins
 
 This program is free software: you can redistribute it and/or modify
@@ -16,11 +16,9 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-import 'package:flutter/material.dart';
-
-import 'package:hive_flutter/hive_flutter.dart';
-
 import 'package:buka_ea_khale/src/repositories/local_user_repository.dart';
+import 'package:flutter/material.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
 class StreaksRepository extends ChangeNotifier {
   var _currentStreak = 1;
@@ -28,32 +26,34 @@ class StreaksRepository extends ChangeNotifier {
   var _perfectWeeks = 0;
 
   int get currentStreak => _currentStreak;
+
   int get bestStreak => _bestStreak;
+
   int get perfectWeeks => _perfectWeeks;
 
   Future<void> _incrementStreak() async {
-    final box = Hive.box('elisha');
+    final box = Hive.box('sso');
     _currentStreak++;
     await box.put('current_streak', _currentStreak);
     notifyListeners();
   }
 
   Future<void> _incrementBestStreak() async {
-    final box = Hive.box('elisha');
+    final box = Hive.box('sso');
     _bestStreak++;
     await box.put('best_streak', _bestStreak);
     notifyListeners();
   }
 
   Future<void> _incrementPerfectWeeks() async {
-    final box = Hive.box('elisha');
+    final box = Hive.box('sso');
     _perfectWeeks++;
     await box.put('perfect_weeks', _perfectWeeks);
     notifyListeners();
   }
 
   Future<void> _resetCurrentStreak() async {
-    final box = Hive.box('elisha');
+    final box = Hive.box('sso');
 
     _currentStreak = 1;
     await box.put('current_streak', _currentStreak);
@@ -61,7 +61,7 @@ class StreaksRepository extends ChangeNotifier {
   }
 
   void _loadData() {
-    final box = Hive.box('elisha');
+    final box = Hive.box('sso');
 
     _currentStreak = box.get('current_streak', defaultValue: 1);
     _bestStreak = box.get('best_streak', defaultValue: 1);
@@ -71,11 +71,12 @@ class StreaksRepository extends ChangeNotifier {
   Future<void> updateStreaks() async {
     _loadData();
 
-    final box = Hive.box('elisha');
+    final box = Hive.box('sso');
 
     final now = DateTime.now();
 
-    var lastVisitDate = DateTime.parse(box.get('visitKey', defaultValue: now.toString()));
+    var lastVisitDate =
+        DateTime.parse(box.get('visitKey', defaultValue: now.toString()));
     var startDayDate = DateTime(now.year, now.month, now.day);
 
     if (startDayDate.day == lastVisitDate.day &&

@@ -1,5 +1,5 @@
 /*
-Elisha iOS & Android App
+Sso iOS & Android App
 Copyright (C) 2022 Carlton Aikins
 
 This program is free software: you can redistribute it and/or modify
@@ -24,7 +24,10 @@ class DailyDevotionalService {
 
   final Dio _dio;
   final _rootUrl = 'http://dailyscripture.servantsoftheword.org/readings';
-  final _date = DateFormat('MMMd').format(DateTime.now()).toLowerCase().replaceAll(' ', '');
+  final _date = DateFormat('MMMd')
+      .format(DateTime.now())
+      .toLowerCase()
+      .replaceAll(' ', '');
   final _year = DateTime.now().year.toString();
 
   String get interfaceUrl => 'https://www.dailyscripture.net/daily-meditation/';
@@ -33,11 +36,14 @@ class DailyDevotionalService {
   Future<String> get todaysDailyDevotional async {
     final resp = await _dio.get(_rootUrl + '/' + _year + '/' + _date + '.htm');
 
-    var data = (resp.data as String).substring(0, resp.data.indexOf('<font face='));
+    var data =
+        (resp.data as String).substring(0, resp.data.indexOf('<font face='));
     data += '</body> </html>';
 
-    data = data.replaceRange(data.indexOf('<h1>'), data.indexOf('<h1>') + 5, '<h1>');
-    data = data.replaceRange(data.indexOf('<center>&nbsp;'), data.indexOf('<center>&nbsp;') + 14, '<center>');
+    data = data.replaceRange(
+        data.indexOf('<h1>'), data.indexOf('<h1>') + 5, '<h1>');
+    data = data.replaceRange(data.indexOf('<center>&nbsp;'),
+        data.indexOf('<center>&nbsp;') + 14, '<center>');
 
     return data.trim();
   }

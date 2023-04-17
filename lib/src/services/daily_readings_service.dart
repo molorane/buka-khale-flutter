@@ -1,5 +1,5 @@
 /*
-Elisha iOS & Android App
+Sso iOS & Android App
 Copyright (C) 2022 Carlton Aikins
 
 This program is free software: you can redistribute it and/or modify
@@ -16,14 +16,14 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
+import 'package:buka_ea_khale/src/models/daily_reading.dart';
+import 'package:buka_ea_khale/src/models/reading.dart';
 import 'package:intl/intl.dart';
 import 'package:universal_html/controller.dart';
 
-import 'package:buka_ea_khale/src/models/daily_reading.dart';
-import 'package:buka_ea_khale/src/models/reading.dart';
-
 class DailyReadingsService {
   DailyReadingsService();
+
   final _rootUrl = 'https://bible.usccb.org/bible/readings';
 
   Future<DailyReading> get getTodaysReading async {
@@ -35,12 +35,15 @@ class DailyReadingsService {
 
     final doc = controller.window?.document;
 
-    final nameNode =
-        doc!.getElementsByClassName('wr-block b-lectionary padding-top-s padding-bottom-xxs bg-white').first;
+    final nameNode = doc!
+        .getElementsByClassName(
+            'wr-block b-lectionary padding-top-s padding-bottom-xxs bg-white')
+        .first;
 
     final lectionaryNode = nameNode;
 
-    final readingNodes = doc.getElementsByClassName('wr-block b-verse bg-white padding-bottom-m');
+    final readingNodes = doc
+        .getElementsByClassName('wr-block b-verse bg-white padding-bottom-m');
 
     List<Reading> readings = [];
 
@@ -54,13 +57,21 @@ class DailyReadingsService {
       readings.add(reading);
     }
 
-    final name = nameNode.text!.trim().substring(0, nameNode.text!.trim().indexOf('\n')).trim();
+    final name = nameNode.text!
+        .trim()
+        .substring(0, nameNode.text!.trim().indexOf('\n'))
+        .trim();
     final lectionary = lectionaryNode.text!
         .trim()
         .substring(lectionaryNode.text!.trim().lastIndexOf('\n'))
         .trim()
         .substring(
-          lectionaryNode.text!.trim().substring(lectionaryNode.text!.trim().lastIndexOf('\n')).trim().indexOf(' ') + 1,
+          lectionaryNode.text!
+                  .trim()
+                  .substring(lectionaryNode.text!.trim().lastIndexOf('\n'))
+                  .trim()
+                  .indexOf(' ') +
+              1,
         );
 
     final dailyReading = DailyReading(

@@ -80,7 +80,7 @@ dev_dependencies:
 flutter_icons:
   android: "launcher_icon"
   ios: true
-  image_path: "assets/icon/icon.png"
+  image_path: "assets/icon/launcher.png"
   min_sdk_android: 21 # android min sdk min:16, default 21
   remove_alpha_ios: true
   # The "flutter_lints" package below contains a set of recommended lints to
@@ -121,14 +121,6 @@ flutter:
     - assets/images/church_1.jpg
     - assets/images/church_2.jpg
     - assets/images/church_3.jpg
-
-    # Bible Versions
-    - backend/asv.json
-    - backend/bbe.json
-    - backend/kjv.json
-    - backend/sso.json
-    - backend/web.json
-    - backend/ylt.json
 
     # sqlite
     - assets/sso.db

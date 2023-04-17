@@ -1,5 +1,5 @@
 /*
-Elisha iOS & Android App
+Sso iOS & Android App
 Copyright (C) 2022 Carlton Aikins
 
 This program is free software: you can redistribute it and/or modify
@@ -16,19 +16,17 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-import 'package:flutter/services.dart';
-
-import 'package:canton_ui/canton_ui.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:google_mobile_ads/google_mobile_ads.dart';
-import 'package:line_awesome_flutter/line_awesome_flutter.dart';
-
 import 'package:buka_ea_khale/src/models/verse.dart';
 import 'package:buka_ea_khale/src/providers/ad_state_provider.dart';
 import 'package:buka_ea_khale/src/providers/local_user_repository_provider.dart';
 import 'package:buka_ea_khale/src/providers/reader_settings_repository_provider.dart';
 import 'package:buka_ea_khale/src/providers/study_tools_repository_provider.dart';
 import 'package:buka_ea_khale/src/services/ad_state.dart';
+import 'package:canton_ui/canton_ui.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 
 class VerseOfTheDayView extends ConsumerStatefulWidget {
   const VerseOfTheDayView({Key? key, required this.verses}) : super(key: key);
@@ -46,7 +44,8 @@ class _VerseOfTheDayViewState extends ConsumerState<VerseOfTheDayView> {
   @override
   void initState() {
     super.initState();
-    _isFavorite = ref.read(studyToolsRepositoryProvider).favoriteVerses.where((e) {
+    _isFavorite =
+        ref.read(studyToolsRepositoryProvider).favoriteVerses.where((e) {
       return widget.verses.any((element) => e.id == element.id);
     }).isNotEmpty;
 
@@ -109,7 +108,8 @@ class _VerseOfTheDayViewState extends ConsumerState<VerseOfTheDayView> {
         }).isNotEmpty) {
           return Icon(LineAwesomeIcons.heart_1, size: 24, color: heartColor());
         }
-        return Icon(LineAwesomeIcons.heart, size: 24, color: Theme.of(context).colorScheme.primary);
+        return Icon(LineAwesomeIcons.heart,
+            size: 24, color: Theme.of(context).colorScheme.primary);
       }
 
       return GestureDetector(
@@ -122,9 +122,13 @@ class _VerseOfTheDayViewState extends ConsumerState<VerseOfTheDayView> {
 
           for (Verse item in widget.verses) {
             if (_isFavorite) {
-              await ref.read(studyToolsRepositoryProvider).addFavoriteVerse(item);
+              await ref
+                  .read(studyToolsRepositoryProvider)
+                  .addFavoriteVerse(item);
             } else {
-              await ref.read(studyToolsRepositoryProvider).removeFavoriteVerse(item);
+              await ref
+                  .read(studyToolsRepositoryProvider)
+                  .removeFavoriteVerse(item);
             }
           }
         },
@@ -201,7 +205,9 @@ class _VerseOfTheDayViewState extends ConsumerState<VerseOfTheDayView> {
       String versesString() {
         var str = '';
         if (widget.verses.length > 1) {
-          str = widget.verses.first.verseId.toString() + ' - ' + widget.verses.last.verseId.toString();
+          str = widget.verses.first.verseId.toString() +
+              ' - ' +
+              widget.verses.last.verseId.toString();
         } else {
           str = widget.verses[0].verseId.toString();
         }
@@ -210,10 +216,16 @@ class _VerseOfTheDayViewState extends ConsumerState<VerseOfTheDayView> {
       }
 
       return SelectableText(
-        widget.verses[0].book.name! + ' ' + widget.verses[0].chapterId.toString() + ':' + versesString(),
+        widget.verses[0].book.name! +
+            ' ' +
+            widget.verses[0].chapterId.toString() +
+            ':' +
+            versesString(),
         style: Theme.of(context).textTheme.headline6?.copyWith(
               fontWeight: FontWeight.w500,
-              height: ref.watch(readerSettingsRepositoryProvider.notifier).bodyTextHeight,
+              height: ref
+                  .watch(readerSettingsRepositoryProvider.notifier)
+                  .bodyTextHeight,
               fontFamily: ref.watch(readerSettingsRepositoryProvider).typeFace,
             ),
       );
@@ -233,18 +245,35 @@ class _VerseOfTheDayViewState extends ConsumerState<VerseOfTheDayView> {
                     text: verse.verseId.toString() + ' ',
                     style: Theme.of(context).textTheme.bodyText1?.copyWith(
                           color: Theme.of(context).colorScheme.secondaryVariant,
-                          fontSize: ref.watch(readerSettingsRepositoryProvider).verseNumberSize * 1.5,
-                          height: ref.watch(readerSettingsRepositoryProvider).verseNumberHeight,
-                          fontFamily: ref.watch(readerSettingsRepositoryProvider).typeFace,
+                          fontSize: ref
+                                  .watch(readerSettingsRepositoryProvider)
+                                  .verseNumberSize *
+                              1.5,
+                          height: ref
+                              .watch(readerSettingsRepositoryProvider)
+                              .verseNumberHeight,
+                          fontFamily: ref
+                              .watch(readerSettingsRepositoryProvider)
+                              .typeFace,
                         ),
                     children: [
                       TextSpan(
-                        text: (verse.text + (widget.verses.last == verse ? '' : ' ')),
+                        text: (verse.text +
+                            (widget.verses.last == verse ? '' : ' ')),
                         style: Theme.of(context).textTheme.headline5!.copyWith(
                               fontWeight: FontWeight.w400,
-                              fontSize: ref.watch(readerSettingsRepositoryProvider.notifier).bodyTextSize * 1.5,
-                              height: ref.watch(readerSettingsRepositoryProvider.notifier).bodyTextHeight,
-                              fontFamily: ref.watch(readerSettingsRepositoryProvider).typeFace,
+                              fontSize: ref
+                                      .watch(readerSettingsRepositoryProvider
+                                          .notifier)
+                                      .bodyTextSize *
+                                  1.5,
+                              height: ref
+                                  .watch(
+                                      readerSettingsRepositoryProvider.notifier)
+                                  .bodyTextHeight,
+                              fontFamily: ref
+                                  .watch(readerSettingsRepositoryProvider)
+                                  .typeFace,
                             ),
                       ),
                     ],
@@ -253,14 +282,7 @@ class _VerseOfTheDayViewState extends ConsumerState<VerseOfTheDayView> {
                 ),
               ),
             const SizedBox(height: kDefaultPadding),
-            _bookChapterVerse(context),
-            const SizedBox(height: kDefaultPadding * 3),
-            Container(
-              padding: const EdgeInsets.only(bottom: 10),
-              width: _ad!.size.width.toDouble(),
-              height: _ad!.size.height.toDouble(),
-              child: AdWidget(ad: _ad!),
-            ),
+            _bookChapterVerse(context)
           ],
         ),
       ),

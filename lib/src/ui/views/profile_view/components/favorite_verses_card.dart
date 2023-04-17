@@ -1,5 +1,5 @@
 /*
-Elisha iOS & Android App
+Sso iOS & Android App
 Copyright (C) 2022 Carlton Aikins
 
 This program is free software: you can redistribute it and/or modify
@@ -16,10 +16,9 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
+import 'package:buka_ea_khale/src/ui/views/favorite_verses_view/favorite_verses_view.dart';
 import 'package:canton_ui/canton_ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
-import 'package:buka_ea_khale/src/ui/views/favorite_verses_view/favorite_verses_view.dart';
 
 class FavoriteVersesCard extends ConsumerWidget {
   const FavoriteVersesCard({Key? key}) : super(key: key);
@@ -42,7 +41,7 @@ class FavoriteVersesCard extends ConsumerWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                'Favorite Verses',
+                'Temana tsa thatohatsi',
                 style: Theme.of(context).textTheme.headline6,
               ),
               const Icon(Iconsax.arrow_right_3),

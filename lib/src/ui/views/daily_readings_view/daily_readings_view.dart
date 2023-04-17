@@ -1,5 +1,5 @@
 /*
-Elisha iOS & Android App
+Sso iOS & Android App
 Copyright (C) 2022 Carlton Aikins
 
 This program is free software: you can redistribute it and/or modify
@@ -16,15 +16,14 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-import 'package:canton_ui/canton_ui.dart';
-import 'package:flutter_linkify/flutter_linkify.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:url_launcher/url_launcher.dart';
-
 import 'package:buka_ea_khale/src/models/daily_reading.dart';
 import 'package:buka_ea_khale/src/models/reading.dart';
 import 'package:buka_ea_khale/src/providers/reader_settings_repository_provider.dart';
 import 'package:buka_ea_khale/src/ui/views/daily_readings_view/components/daily_readings_view_header.dart';
+import 'package:canton_ui/canton_ui.dart';
+import 'package:flutter_linkify/flutter_linkify.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class DailyReadingsView extends ConsumerWidget {
   const DailyReadingsView(this.dailyReading, {Key? key}) : super(key: key);
@@ -131,7 +130,8 @@ class DailyReadingsView extends ConsumerWidget {
             Text(
               reading.name!,
               style: Theme.of(context).textTheme.headline4?.copyWith(
-                    fontFamily: ref.watch(readerSettingsRepositoryProvider).typeFace,
+                    fontFamily:
+                        ref.watch(readerSettingsRepositoryProvider).typeFace,
                   ),
             ),
             const SizedBox(width: 10),
@@ -140,7 +140,8 @@ class DailyReadingsView extends ConsumerWidget {
                 reading.snippetAddress!,
                 style: Theme.of(context).textTheme.headline6?.copyWith(
                       color: Theme.of(context).colorScheme.secondaryVariant,
-                      fontFamily: ref.watch(readerSettingsRepositoryProvider).typeFace,
+                      fontFamily:
+                          ref.watch(readerSettingsRepositoryProvider).typeFace,
                     ),
               ),
             ),
@@ -150,10 +151,14 @@ class DailyReadingsView extends ConsumerWidget {
         Text(
           reading.text!,
           style: Theme.of(context).textTheme.headline5?.copyWith(
-                fontFamily: ref.watch(readerSettingsRepositoryProvider).typeFace,
+                fontFamily:
+                    ref.watch(readerSettingsRepositoryProvider).typeFace,
                 fontWeight: FontWeight.w400,
-                fontSize: ref.watch(readerSettingsRepositoryProvider).bodyTextSize * 1.3,
-                height: ref.watch(readerSettingsRepositoryProvider).bodyTextHeight,
+                fontSize:
+                    ref.watch(readerSettingsRepositoryProvider).bodyTextSize *
+                        1.3,
+                height:
+                    ref.watch(readerSettingsRepositoryProvider).bodyTextHeight,
               ),
         ),
       ],

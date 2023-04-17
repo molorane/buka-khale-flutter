@@ -1,5 +1,5 @@
 /*
-Elisha iOS & Android App
+Sso iOS & Android App
 Copyright (C) 2022 Carlton Aikins
 
 This program is free software: you can redistribute it and/or modify
@@ -16,14 +16,12 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-import 'package:flutter/services.dart';
-
-import 'package:canton_ui/canton_ui.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:line_awesome_flutter/line_awesome_flutter.dart';
-
 import 'package:buka_ea_khale/src/models/verse.dart';
 import 'package:buka_ea_khale/src/providers/study_tools_repository_provider.dart';
+import 'package:canton_ui/canton_ui.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 
 class FavoriteVerseCard extends ConsumerStatefulWidget {
   const FavoriteVerseCard({Key? key, required this.verse}) : super(key: key);
@@ -36,8 +34,11 @@ class FavoriteVerseCard extends ConsumerStatefulWidget {
 
 class _FavoriteVerseCardState extends ConsumerState<FavoriteVerseCard> {
   String cardTitle() {
-    final str =
-        widget.verse.book.name! + ' ' + widget.verse.chapterId.toString() + ':' + widget.verse.verseId.toString();
+    final str = widget.verse.book.name! +
+        ' ' +
+        widget.verse.chapterId.toString() +
+        ':' +
+        widget.verse.verseId.toString();
 
     return str;
   }
@@ -62,7 +63,8 @@ class _FavoriteVerseCardState extends ConsumerState<FavoriteVerseCard> {
       if (verse.favorite) {
         return Icon(LineAwesomeIcons.heart_1, size: 20, color: heartColor());
       }
-      return Icon(LineAwesomeIcons.heart, size: 20, color: Theme.of(context).colorScheme.secondaryVariant);
+      return Icon(LineAwesomeIcons.heart,
+          size: 20, color: Theme.of(context).colorScheme.secondaryVariant);
     }
 
     return GestureDetector(
@@ -76,7 +78,9 @@ class _FavoriteVerseCardState extends ConsumerState<FavoriteVerseCard> {
         if (_isFavorite) {
           await ref.read(studyToolsRepositoryProvider).addFavoriteVerse(verse);
         } else {
-          await ref.read(studyToolsRepositoryProvider).removeFavoriteVerse(verse);
+          await ref
+              .read(studyToolsRepositoryProvider)
+              .removeFavoriteVerse(verse);
         }
       },
       child: Container(

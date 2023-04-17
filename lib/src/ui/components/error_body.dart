@@ -1,5 +1,5 @@
 /*
-Elisha iOS & Android App
+Sso iOS & Android App
 Copyright (C) 2022 Carlton Aikins
 
 This program is free software: you can redistribute it and/or modify
@@ -24,6 +24,7 @@ class ErrorBody extends ConsumerWidget {
   final AutoDisposeFutureProvider provider;
 
   const ErrorBody(this.message, this.provider, {Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Column(

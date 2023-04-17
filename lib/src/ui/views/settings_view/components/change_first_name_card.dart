@@ -20,6 +20,8 @@ import 'package:buka_ea_khale/src/providers/local_user_repository_provider.dart'
 import 'package:canton_ui/canton_ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../../config/constants.dart';
+
 class ChangeFirstNameCard extends ConsumerWidget {
   const ChangeFirstNameCard({Key? key}) : super(key: key);
 
@@ -28,14 +30,14 @@ class ChangeFirstNameCard extends ConsumerWidget {
     final _controller = TextEditingController();
 
     String currentNameStr() {
-      return 'Current First Name: ' +
+      return 'Lebisto: ' +
           ref.watch(localUserRepositoryProvider).getUser.firstName;
     }
 
     return CantonExpansionTile(
       title: Text(
-        'Change First Name',
-        style: Theme.of(context).textTheme.headline6,
+        'Chencha lebitso',
+        style: Theme.of(context).textTheme.titleLarge,
       ),
       decoration: BoxDecoration(
         color: CantonMethods.alternateCanvasColorType3(context),
@@ -67,7 +69,7 @@ class ChangeFirstNameCard extends ConsumerWidget {
                 children: [
                   CantonPrimaryButton(
                     buttonText: 'Confirm',
-                    color: Theme.of(context).colorScheme.primary,
+                    color: colorTheme,
                     textColor: Theme.of(context).colorScheme.onBackground,
                     containerWidth: 100,
                     containerHeight: 30,

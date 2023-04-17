@@ -22,6 +22,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../../config/constants.dart';
+
 class DailyDevotionalCard extends ConsumerStatefulWidget {
   const DailyDevotionalCard({Key? key}) : super(key: key);
 
@@ -132,7 +134,7 @@ class _DailyDevotionalCardState extends ConsumerState<DailyDevotionalCard> {
 
   Widget _header(BuildContext context, Color bgColor) {
     return Text(
-      'Daily Devotional',
+      'Bala lentsoe',
       style: Theme.of(context)
           .textTheme
           .headline4
@@ -150,7 +152,7 @@ class _DailyDevotionalCardState extends ConsumerState<DailyDevotionalCard> {
           children: [
             Expanded(
               child: Text(
-                'Learn and Meditate on God\'s Word daily',
+                'Itute o nahanise Lentsoe la Molimo kamehla',
                 overflow: TextOverflow.ellipsis,
                 maxLines: 2,
                 style: Theme.of(context).textTheme.headline5?.copyWith(
@@ -164,7 +166,7 @@ class _DailyDevotionalCardState extends ConsumerState<DailyDevotionalCard> {
         CantonPrimaryButton(
           containerWidth: 100,
           containerHeight: 40,
-          color: Theme.of(context).colorScheme.primary,
+          color: colorTheme,
           textColor: Theme.of(context).colorScheme.onBackground,
           padding: EdgeInsets.zero,
           shape:

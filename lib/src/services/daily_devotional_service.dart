@@ -23,14 +23,14 @@ class DailyDevotionalService {
   DailyDevotionalService(this._dio);
 
   final Dio _dio;
-  final _rootUrl = 'http://dailyscripture.servantsoftheword.org/readings';
+  final _rootUrl = 'https://dclm.org/';
   final _date = DateFormat('MMMd')
       .format(DateTime.now())
       .toLowerCase()
       .replaceAll(' ', '');
   final _year = DateTime.now().year.toString();
 
-  String get interfaceUrl => 'https://www.dailyscripture.net/daily-meditation/';
+  String get interfaceUrl => 'https://dclm.org/';
 
   // Make algorithm to determine date for link above.
   Future<String> get todaysDailyDevotional async {

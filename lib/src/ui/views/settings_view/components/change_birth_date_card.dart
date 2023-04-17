@@ -24,6 +24,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 
+import '../../../../config/constants.dart';
+
 class ChangeBirthDateCard extends ConsumerWidget {
   const ChangeBirthDateCard({Key? key}) : super(key: key);
 
@@ -43,7 +45,7 @@ class ChangeBirthDateCard extends ConsumerWidget {
     return CantonExpansionTile(
       title: Text(
         'Change Birthday',
-        style: Theme.of(context).textTheme.headline6,
+        style: Theme.of(context).textTheme.titleLarge,
       ),
       decoration: BoxDecoration(
         color: CantonMethods.alternateCanvasColorType3(context),
@@ -59,7 +61,7 @@ class ChangeBirthDateCard extends ConsumerWidget {
             children: [
               Text(
                 currentBirthdayStr(),
-                style: Theme.of(context).textTheme.bodyText1,
+                style: Theme.of(context).textTheme.bodyMedium,
               ),
               const SizedBox(height: 10),
               SizedBox(
@@ -98,7 +100,7 @@ class ChangeBirthDateCard extends ConsumerWidget {
                 children: [
                   CantonPrimaryButton(
                     buttonText: 'Confirm',
-                    color: Theme.of(context).colorScheme.primary,
+                    color: colorTheme,
                     textColor: Theme.of(context).colorScheme.onBackground,
                     containerWidth: 100,
                     containerHeight: 30,

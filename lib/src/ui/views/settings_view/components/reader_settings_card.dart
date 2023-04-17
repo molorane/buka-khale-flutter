@@ -41,8 +41,8 @@ class ReaderSettingsCard extends ConsumerWidget {
           padding: const EdgeInsets.symmetric(vertical: 17, horizontal: 17),
           alignment: Alignment.centerLeft,
           child: Text(
-            'Adjust Reader Settings',
-            style: Theme.of(context).textTheme.headline6,
+            'Chencha Lisettings',
+            style: Theme.of(context).textTheme.titleLarge,
           ),
         ),
       ),

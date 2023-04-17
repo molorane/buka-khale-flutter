@@ -20,7 +20,7 @@ import 'package:canton_ui/canton_ui.dart';
 
 const String kAppTitle = 'Sso';
 
-const String kVersionNumber = 'Sso v1.1.4 (14)';
+const String kVersionNumber = 'Sso 1.0.1';
 
 const natureImages = <String>[
   'assets/images/nature_1.jpg',
@@ -47,3 +47,5 @@ Color heartColor(BuildContext context) {
   }
   return CantonColors.red[400]!;
 }
+
+const colorTheme = Color(0xffb00020);

@@ -101,7 +101,7 @@ class DailyDevotionalView extends ConsumerWidget {
                       }
                     },
                     text:
-                        'Daily Devotional is courtesy of © 2022 DAILY SCRIPTURE READINGS AND MEDITATIONS. Their Website is located at https://www.dailyscripture.net/daily-meditation/',
+                        'Ho fumana Lentso matsatsi ohle. Sheba Website e fumaneha mona https://dclm.org/',
                     style: Theme.of(context).textTheme.headline6,
                     linkStyle: Theme.of(context).textTheme.headline6?.copyWith(
                           color: Theme.of(context).colorScheme.onPrimary,

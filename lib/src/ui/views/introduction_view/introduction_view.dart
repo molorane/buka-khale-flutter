@@ -31,6 +31,8 @@ import 'package:intl/intl.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 
+import '../../../config/constants.dart';
+
 class IntroductionView extends ConsumerStatefulWidget {
   const IntroductionView({Key? key}) : super(key: key);
 
@@ -102,12 +104,12 @@ class _IntroductionViewState extends ConsumerState<IntroductionView> {
         next: Container(
           padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 17),
           decoration: BoxDecoration(
-            color: Theme.of(context).colorScheme.primary,
+            color: colorTheme,
             borderRadius: BorderRadius.circular(30),
           ),
           child: Text(
             'Next',
-            style: Theme.of(context).textTheme.button?.copyWith(
+            style: Theme.of(context).textTheme.labelLarge?.copyWith(
                   color: Theme.of(context).colorScheme.onBackground,
                 ),
           ),
@@ -115,27 +117,27 @@ class _IntroductionViewState extends ConsumerState<IntroductionView> {
         done: Container(
           padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 17),
           decoration: BoxDecoration(
-            color: Theme.of(context).colorScheme.primary,
+            color: colorTheme,
             borderRadius: BorderRadius.circular(30),
           ),
           child: Text(
             'Next',
-            style: Theme.of(context).textTheme.button?.copyWith(
+            style: Theme.of(context).textTheme.labelLarge?.copyWith(
                   color: Theme.of(context).colorScheme.onBackground,
                 ),
           ),
         ),
         pages: [
           PageViewModel(
-            title: 'Read the Bible',
+            title: 'Bala Bibele',
             body:
-                'Read 2 versions of the Bible, Bookmark chapters and Favorite verses.',
+                'Bala Lentsoe la Molimo, Khetha likhaolo le litemana tsa thatohatsi ea hao.',
             image: _buildImage(LineAwesomeIcons.bible),
             decoration: _pageDecoration(),
           ),
           PageViewModel(
-            title: 'Interactive Features',
-            body: 'Streaks, Temana ea Letsatsi, and more!',
+            title: 'U fumana tse latelang',
+            body: 'Temana ea letsati, Palo ea bibele, le tse ngata!',
             image: _buildImage(LineAwesomeIcons.hand_pointing_up),
             decoration: _pageDecoration(),
           ),
@@ -195,18 +197,18 @@ class _WelcomeViewState extends ConsumerState<WelcomeView> {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         SizedBox(height: MediaQuery.of(context).size.height / 9),
-        Image.asset('assets/icon/app.png', height: 70),
+        Image.asset('assets/icon/icon.png', height: 70),
         const SizedBox(height: 20),
         Column(
           children: [
             Text(
               'Welcome to Buka Ea Khale',
-              style: Theme.of(context).textTheme.headline4,
+              style: Theme.of(context).textTheme.headlineMedium,
             ),
             const SizedBox(height: 10),
             Text(
               'Please fill out the following fields.',
-              style: Theme.of(context).textTheme.headline6,
+              style: Theme.of(context).textTheme.titleLarge,
             ),
           ],
         ),
@@ -226,7 +228,7 @@ class _WelcomeViewState extends ConsumerState<WelcomeView> {
         _validate
             ? Text(
                 'Please fill out the remaining fields',
-                style: Theme.of(context).textTheme.headline6?.copyWith(
+                style: Theme.of(context).textTheme.titleLarge?.copyWith(
                       color: Theme.of(context).colorScheme.error,
                     ),
               )
@@ -241,21 +243,21 @@ class _WelcomeViewState extends ConsumerState<WelcomeView> {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         SizedBox(height: MediaQuery.of(context).size.height / 9),
-        Image.asset('assets/icon/app.png',
+        Image.asset('assets/icon/icon.png',
             height: MediaQuery.of(context).size.height / 17),
         const SizedBox(height: 20),
         Column(
           children: [
             Text(
-              'Welcome to Buka Ea Khale',
+              'O amoheleile ho Buka Ea Khale',
               style:
-                  Theme.of(context).textTheme.headline4?.copyWith(fontSize: 27),
+                  Theme.of(context).textTheme.headlineMedium?.copyWith(fontSize: 27),
             ),
             const SizedBox(height: 10),
             Text(
               'Please fill out the following fields.',
               style:
-                  Theme.of(context).textTheme.headline6?.copyWith(fontSize: 24),
+                  Theme.of(context).textTheme.titleLarge?.copyWith(fontSize: 24),
             ),
           ],
         ),
@@ -284,7 +286,7 @@ class _WelcomeViewState extends ConsumerState<WelcomeView> {
         _validate
             ? Text(
                 'Please fill out the remaining fields',
-                style: Theme.of(context).textTheme.headline6?.copyWith(
+                style: Theme.of(context).textTheme.titleLarge?.copyWith(
                       color: Theme.of(context).colorScheme.error,
                     ),
               )
@@ -319,8 +321,8 @@ class _WelcomeViewState extends ConsumerState<WelcomeView> {
                   padding:
                       const EdgeInsets.symmetric(vertical: 20, horizontal: 27),
                   child: Text(
-                    'Select Your Birthday',
-                    style: Theme.of(context).textTheme.headline5,
+                    'Khetha tsatsi la tlhaho',
+                    style: Theme.of(context).textTheme.headlineSmall,
                   ),
                 ),
                 SizedBox(
@@ -403,7 +405,7 @@ class _WelcomeViewState extends ConsumerState<WelcomeView> {
       margin: const EdgeInsets.symmetric(vertical: 20, horizontal: 7),
       child: CantonPrimaryButton(
         buttonText: 'Done',
-        color: Theme.of(context).colorScheme.primary,
+        color: colorTheme,
         textColor: Theme.of(context).colorScheme.onBackground,
         containerWidth: 120,
         containerHeight: 50,

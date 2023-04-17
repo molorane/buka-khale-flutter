@@ -75,7 +75,7 @@ class SettingsView extends ConsumerWidget {
           const SizedBox(height: kSmallPadding),
           Text(
             kVersionNumber,
-            style: Theme.of(context).textTheme.bodyText2?.copyWith(
+            style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                   fontWeight: FontWeight.w500,
                 ),
           ),

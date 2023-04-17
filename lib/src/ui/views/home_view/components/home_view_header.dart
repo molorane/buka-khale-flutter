@@ -28,12 +28,12 @@ class HomeViewHeader extends ConsumerWidget {
     String greeting() {
       var hour = DateTime.now().hour;
       if (hour < 12) {
-        return 'Morning';
+        return 'Hoseng hona';
       }
       if (hour < 17) {
-        return 'Afternoon';
+        return 'Let`seareng lona';
       }
-      return 'Evening';
+      return 'Bosiu bona';
     }
 
     String name(String source) {
@@ -49,7 +49,7 @@ class HomeViewHeader extends ConsumerWidget {
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 25, horizontal: 30),
         child: Text(
-          'Good ' + greeting() + ', ' + (dbName != '' ? name(dbName) : ''),
+          'Lumela ' + greeting() + ', ' + (dbName != '' ? name(dbName) : ''),
           style: Theme.of(context)
               .textTheme
               .headline2

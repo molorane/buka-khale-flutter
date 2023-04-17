@@ -28,12 +28,12 @@ class HomeViewHeader extends ConsumerWidget {
     String greeting() {
       var hour = DateTime.now().hour;
       if (hour < 12) {
-        return 'Hoseng hona';
+        return 'hoseng hona';
       }
       if (hour < 17) {
-        return 'Let`seareng lona';
+        return 'let`seareng lona';
       }
-      return 'Bosiu bona';
+      return 'bosiung bona';
     }
 
     String name(String source) {

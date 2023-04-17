@@ -90,11 +90,11 @@ class BibleReader extends ConsumerWidget {
                   Text(
                     item.verseId.toString(),
                     style: Theme.of(context).textTheme.bodyText1?.copyWith(
-                          color: Theme.of(context).colorScheme.secondaryVariant,
+                          color: colorTheme,
                           fontSize: ref
                                   .watch(readerSettingsRepositoryProvider)
                                   .verseNumberSize *
-                              1.1,
+                              2,
                           // height: ref.watch(readerSettingsRepositoryProvider).verseNumberHeight,
                           fontFamily: ref
                               .watch(readerSettingsRepositoryProvider)

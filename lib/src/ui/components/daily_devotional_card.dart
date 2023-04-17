@@ -152,7 +152,7 @@ class _DailyDevotionalCardState extends ConsumerState<DailyDevotionalCard> {
           children: [
             Expanded(
               child: Text(
-                'Itute o nahanise Lentsoe la Molimo kamehla',
+                'Ithute o nahanise Lentsoe la Molimo kamehla',
                 overflow: TextOverflow.ellipsis,
                 maxLines: 2,
                 style: Theme.of(context).textTheme.headline5?.copyWith(

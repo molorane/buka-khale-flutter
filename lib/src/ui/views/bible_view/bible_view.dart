@@ -826,7 +826,7 @@ class _BibleViewState extends ConsumerState<BibleView> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      'Books',
+                      'Libuka',
                       style: Theme.of(context).textTheme.headline5,
                     ),
                   ],

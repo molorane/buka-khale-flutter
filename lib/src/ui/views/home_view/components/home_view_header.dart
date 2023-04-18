@@ -31,7 +31,7 @@ class HomeViewHeader extends ConsumerWidget {
         return 'hoseng hona';
       }
       if (hour < 17) {
-        return 'let`seareng lona';
+        return 'let`seareng lena';
       }
       return 'bosiung bona';
     }

@@ -1,5 +1,5 @@
 /*
-Elisha iOS & Android App
+Sso iOS & Android App
 Copyright (C) 2022 Carlton Aikins
 
 This program is free software: you can redistribute it and/or modify
@@ -16,87 +16,85 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-import 'package:flutter/material.dart';
-
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-
 import 'package:buka_ea_khale/src/models/book.dart';
 import 'package:buka_ea_khale/src/models/chapter.dart';
 import 'package:buka_ea_khale/src/models/translation.dart';
 import 'package:buka_ea_khale/src/providers/bible_books_provider.dart';
 import 'package:buka_ea_khale/src/providers/bible_chapters_provider.dart';
 import 'package:buka_ea_khale/src/providers/last_translation_book_chapter_provider.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class BibleRepository {
   BibleRepository();
 
   final _mapOfBibleBooks = <int, String>{
-    1: 'Genesis',
-    2: 'Exodus',
-    3: 'Leviticus',
-    4: 'Numbers',
-    5: 'Deuteronomy',
+    1: 'Genese',
+    2: 'Exoda',
+    3: 'Levitike',
+    4: 'Numere',
+    5: 'Deuteronoma',
     6: 'Joshua',
-    7: 'Judges',
-    8: 'Ruth',
-    9: '1 Samuel',
-    10: '2 Samuel',
-    11: '1 Kings',
-    12: '2 Kings',
-    13: '1 Chronicles',
-    14: '2 Chronicles',
-    15: 'Ezra',
-    16: 'Nehemiah',
-    17: 'Esther',
-    18: 'Job',
-    19: 'Psalms',
-    20: 'Proverbs',
-    21: 'Ecclesiates',
-    22: 'Song of Solomon',
-    23: 'Isaiah',
-    24: 'Jeremiah',
-    25: 'Lamentations',
-    26: 'Ezekiel',
-    27: 'Daniel',
+    7: 'Baahloli',
+    8: 'Ruthe',
+    9: '1 Samuele',
+    10: '2 Samuele',
+    11: '1 Marena',
+    12: '2 Marena',
+    13: '1 Likronike',
+    14: '2 Likronike',
+    15: 'Esdrase',
+    16: 'Nehemia',
+    17: 'Esthere',
+    18: 'Jobo',
+    19: 'Lipesalema',
+    20: 'Liproverbia',
+    21: 'Moekelesia',
+    22: 'Sefela sa Salomone',
+    23: 'Esaia',
+    24: 'Jeremiea',
+    25: 'Lillo tsa Jeremia',
+    26: 'Ezekiele',
+    27: 'Daniele',
     28: 'Hosea',
-    29: 'Joel',
-    30: 'Amos',
-    31: 'Obadiah',
-    32: 'Jonah',
-    33: 'Micah',
-    34: 'Nahum',
-    35: 'Habakkuk',
-    36: 'Zephaniah',
+    29: 'Joele',
+    30: 'Amose',
+    31: 'Obadia',
+    32: 'Jonase',
+    33: 'Mikea',
+    34: 'Nahume',
+    35: 'Habakuke',
+    36: 'Sofonia',
     37: 'Haggai',
-    38: 'Zechariah',
-    39: 'Malachi',
-    40: 'Matthew',
-    41: 'Mark',
-    42: 'Luke',
-    43: 'John',
-    44: 'Acts',
-    45: 'Romans',
-    46: '1 Corinthians',
-    47: '2 Corinthians',
-    48: 'Galatians',
-    49: 'Ephesians',
-    50: 'Philippians',
-    51: 'Colossians',
-    52: '1 Thessalonians',
-    53: '2 Thessalonians',
-    54: '1 Timothy',
-    55: '2 Timothy',
-    56: 'Titus',
-    57: 'Philemon',
-    58: 'Hebrews',
-    59: 'James',
-    60: '1 Peter',
-    61: '2 Peter',
-    62: '1 John',
-    63: '2 John',
-    64: '3 John',
+    38: 'Zakaria',
+    39: 'Malakia',
+    40: 'Mattheu',
+    41: 'Mareka',
+    42: 'Luka',
+    43: 'Johanne',
+    44: 'Liketso',
+    45: 'Baroma',
+    46: '1 Bakorinthe',
+    47: '2 Bakorinthe',
+    48: 'Bagalata',
+    49: 'Baefese',
+    50: 'Bafilipi',
+    51: 'Bakolose',
+    52: '1 Bathesalonika',
+    53: '2 Bathesalonika',
+    54: '1 Timothea',
+    55: '2 Timothea',
+    56: 'Tite',
+    57: 'Filemone',
+    58: 'Baheberu',
+    59: 'Jakobo',
+    60: '1 Peterose',
+    61: '2 Peterose',
+    62: '1 Johanne',
+    63: '2 Johanne',
+    64: '3 Johanne',
     65: 'Jude',
-    66: 'Revelation',
+    66: 'Ts\'enolo',
   };
 
   final _mapOfBibleChaptersAndBooks = <int, int>{
@@ -171,12 +169,16 @@ class BibleRepository {
   };
 
   final _translations = <Translation>[
-    Translation(id: 1, name: 'American Standard-ASV1901', abbreviation: 'asv', language: 'english'),
-    Translation(id: 2, name: 'Bible in Basic English', abbreviation: 'bbe', language: 'english'),
-    Translation(id: 3, name: 'King James Version', abbreviation: 'kjv', language: 'english'),
-    Translation(id: 4, name: 'World English Bible', abbreviation: 'web', language: 'english'),
-    Translation(id: 5, name: 'Young\'s Literal Translation', abbreviation: 'ylt', language: 'english'),
-    Translation(id: 6, name: 'Southern Sesotho Bible', abbreviation: 'sso', language: 'sesotho')
+    Translation(
+        id: 1,
+        name: 'King James Version',
+        abbreviation: 'kjv',
+        language: 'english'),
+    Translation(
+        id: 2,
+        name: 'Southern Sesotho Bible',
+        abbreviation: 'sso',
+        language: 'sesotho')
   ];
 
   List<Translation> get translations => _translations;
@@ -199,9 +201,14 @@ class BibleRepository {
         return 'New';
       }
 
-      final chapters = List<ChapterId>.generate(newMap[item.key]!, (i) => ChapterId(id: i + 1));
+      final chapters = List<ChapterId>.generate(
+          newMap[item.key]!, (i) => ChapterId(id: i + 1));
 
-      final book = Book(id: item.key, chapters: chapters, name: item.value, testament: testament());
+      final book = Book(
+          id: item.key,
+          chapters: chapters,
+          name: item.value,
+          testament: testament());
 
       books.add(book);
     }
@@ -211,7 +218,8 @@ class BibleRepository {
 
   bool _isLastChapterInBook(WidgetRef ref) {
     bool bookChapterBool(int book, int chapter) {
-      return (ref.watch(localRepositoryProvider).chapter == chapter && ref.watch(localRepositoryProvider).book == book);
+      return (ref.watch(localRepositoryProvider).chapter == chapter &&
+          ref.watch(localRepositoryProvider).book == book);
     }
 
     if (bookChapterBool(1, 50) ||
@@ -292,14 +300,16 @@ class BibleRepository {
     }
 
     bool isGenesisOne() {
-      if (ref.watch(localRepositoryProvider).book == 1 && ref.watch(localRepositoryProvider).chapter == 1) {
+      if (ref.watch(localRepositoryProvider).book == 1 &&
+          ref.watch(localRepositoryProvider).chapter == 1) {
         return true;
       }
       return false;
     }
 
     bool isRevelationTwentyTwo() {
-      if (ref.watch(localRepositoryProvider).book == 66 && ref.watch(localRepositoryProvider).chapter == 22) {
+      if (ref.watch(localRepositoryProvider).book == 66 &&
+          ref.watch(localRepositoryProvider).chapter == 22) {
         return true;
       }
       return false;
@@ -321,8 +331,12 @@ class BibleRepository {
         bookID = newBibleBook.toString();
         chapterID = newBibleChapter.toString();
 
-        await ref.read(localRepositoryProvider.notifier).changeBibleBook(newBibleBook);
-        await ref.read(localRepositoryProvider.notifier).changeBibleChapter(newBibleChapter);
+        await ref
+            .read(localRepositoryProvider.notifier)
+            .changeBibleBook(newBibleBook);
+        await ref
+            .read(localRepositoryProvider.notifier)
+            .changeBibleChapter(newBibleChapter);
 
         ref.refresh(bibleChaptersProvider);
       } else {
@@ -341,8 +355,12 @@ class BibleRepository {
         bookID = newBibleBook.toString();
         chapterID = newBibleChapter.toString();
 
-        await ref.read(localRepositoryProvider.notifier).changeBibleBook(newBibleBook);
-        await ref.read(localRepositoryProvider.notifier).changeBibleChapter(newBibleChapter);
+        await ref
+            .read(localRepositoryProvider.notifier)
+            .changeBibleBook(newBibleBook);
+        await ref
+            .read(localRepositoryProvider.notifier)
+            .changeBibleChapter(newBibleChapter);
 
         ref.refresh(bibleChaptersProvider);
       } else {
@@ -352,18 +370,23 @@ class BibleRepository {
   }
 
   Future<void> changeChapter(WidgetRef ref, int book, int chapter) async {
-    if (ref.watch(localRepositoryProvider).book! == book && ref.watch(localRepositoryProvider).chapter! == chapter) {
+    if (ref.watch(localRepositoryProvider).book! == book &&
+        ref.watch(localRepositoryProvider).chapter! == chapter) {
       DoNothingAction();
     } else {
       if (ref.watch(localRepositoryProvider).book! == book) {
         chapterID = chapter.toString();
-        await ref.read(localRepositoryProvider.notifier).changeBibleChapter(chapter);
+        await ref
+            .read(localRepositoryProvider.notifier)
+            .changeBibleChapter(chapter);
       } else {
         bookID = book.toString();
         chapterID = chapter.toString();
 
         await ref.read(localRepositoryProvider.notifier).changeBibleBook(book);
-        await ref.read(localRepositoryProvider.notifier).changeBibleChapter(chapter);
+        await ref
+            .read(localRepositoryProvider.notifier)
+            .changeBibleChapter(chapter);
       }
 
       ref.refresh(bibleChaptersProvider);

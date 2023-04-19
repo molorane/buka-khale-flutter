@@ -1,5 +1,5 @@
 /*
-Elisha iOS & Android App
+Sso iOS & Android App
 Copyright (C) 2022 Carlton Aikins
 
 This program is free software: you can redistribute it and/or modify
@@ -16,20 +16,18 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-import 'package:buka_ea_khale/src/providers/reader_settings_repository_provider.dart';
-import 'package:flutter/services.dart';
-
-import 'package:canton_ui/canton_ui.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:line_awesome_flutter/line_awesome_flutter.dart';
-
 import 'package:buka_ea_khale/src/models/verse.dart';
 import 'package:buka_ea_khale/src/providers/local_user_repository_provider.dart';
+import 'package:buka_ea_khale/src/providers/reader_settings_repository_provider.dart';
 import 'package:buka_ea_khale/src/providers/study_tools_repository_provider.dart';
 import 'package:buka_ea_khale/src/providers/verse_of_the_day_future_provider.dart';
 import 'package:buka_ea_khale/src/ui/components/error_card.dart';
 import 'package:buka_ea_khale/src/ui/components/loading_card.dart';
 import 'package:buka_ea_khale/src/ui/views/verse_of_the_day_view/verse_of_the_day_view.dart';
+import 'package:canton_ui/canton_ui.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 
 class VerseOfTheDayCard extends ConsumerStatefulWidget {
   const VerseOfTheDayCard({Key? key}) : super(key: key);
@@ -49,7 +47,8 @@ class _VerseOfTheDayCardState extends ConsumerState<VerseOfTheDayCard> {
   }
 
   void _checkIfVerseIsFavorite() {
-    _isFavorite = ref.read(studyToolsRepositoryProvider).favoriteVerses.where((e) {
+    _isFavorite =
+        ref.read(studyToolsRepositoryProvider).favoriteVerses.where((e) {
       return _verses!.any((element) => e.text == element.text);
     }).isNotEmpty;
   }
@@ -84,7 +83,8 @@ class _VerseOfTheDayCardState extends ConsumerState<VerseOfTheDayCard> {
 
         return GestureDetector(
           onTap: () {
-            CantonMethods.viewTransition(context, VerseOfTheDayView(verses: _verses!));
+            CantonMethods.viewTransition(
+                context, VerseOfTheDayView(verses: _verses!));
           },
           child: Container(
             padding: const EdgeInsets.all(17.0),
@@ -144,12 +144,16 @@ class _VerseOfTheDayCardState extends ConsumerState<VerseOfTheDayCard> {
 
   Widget _header(BuildContext context, Color bgColor) {
     return Text(
-      'Verse of the Day',
-      style: Theme.of(context).textTheme.headline4?.copyWith(fontWeight: FontWeight.bold),
+      'Temana ea Letsatsi',
+      style: Theme.of(context)
+          .textTheme
+          .headline4
+          ?.copyWith(fontWeight: FontWeight.bold),
     );
   }
 
-  Widget _favoriteButton(BuildContext context, Color bgColor, List<Verse> verses) {
+  Widget _favoriteButton(
+      BuildContext context, Color bgColor, List<Verse> verses) {
     Color heartColor() {
       if (MediaQuery.of(context).platformBrightness == Brightness.dark) {
         return CantonDarkColors.red[400]!;
@@ -163,7 +167,8 @@ class _VerseOfTheDayCardState extends ConsumerState<VerseOfTheDayCard> {
       }).isNotEmpty) {
         return Icon(LineAwesomeIcons.heart_1, size: 24, color: heartColor());
       }
-      return Icon(LineAwesomeIcons.heart, size: 24, color: Theme.of(context).colorScheme.primary);
+      return Icon(LineAwesomeIcons.heart,
+          size: 24, color: Theme.of(context).colorScheme.primary);
     }
 
     return GestureDetector(
@@ -178,7 +183,9 @@ class _VerseOfTheDayCardState extends ConsumerState<VerseOfTheDayCard> {
           if (_isFavorite) {
             await ref.read(studyToolsRepositoryProvider).addFavoriteVerse(item);
           } else {
-            await ref.read(studyToolsRepositoryProvider).removeFavoriteVerse(item);
+            await ref
+                .read(studyToolsRepositoryProvider)
+                .removeFavoriteVerse(item);
           }
         }
       },
@@ -222,10 +229,19 @@ class _VerseOfTheDayCardState extends ConsumerState<VerseOfTheDayCard> {
               overflow: TextOverflow.ellipsis,
               maxLines: 5,
               style: Theme.of(context).textTheme.headline5?.copyWith(
-                    color: _verses == null ? Theme.of(context).colorScheme.error : null,
-                    fontFamily: ref.watch(readerSettingsRepositoryProvider).typeFace,
-                    fontSize: ref.watch(readerSettingsRepositoryProvider).bodyTextSize * 1.3,
-                    height: ref.watch(readerSettingsRepositoryProvider).bodyTextHeight * 0.8,
+                    color: _verses == null
+                        ? Theme.of(context).colorScheme.error
+                        : null,
+                    fontFamily:
+                        ref.watch(readerSettingsRepositoryProvider).typeFace,
+                    fontSize: ref
+                            .watch(readerSettingsRepositoryProvider)
+                            .bodyTextSize *
+                        1.3,
+                    height: ref
+                            .watch(readerSettingsRepositoryProvider)
+                            .bodyTextHeight *
+                        0.8,
                     fontWeight: FontWeight.w500,
                   ),
             ),
@@ -240,7 +256,9 @@ class _VerseOfTheDayCardState extends ConsumerState<VerseOfTheDayCard> {
       if (_verses != null) {
         var str = '';
         if (_verses!.length > 1) {
-          str = _verses!.first.verseId.toString() + ' - ' + _verses!.last.verseId.toString();
+          str = _verses!.first.verseId.toString() +
+              ' - ' +
+              _verses!.last.verseId.toString();
         } else {
           str = _verses![0].verseId.toString();
         }
@@ -253,8 +271,15 @@ class _VerseOfTheDayCardState extends ConsumerState<VerseOfTheDayCard> {
     return Text(
       _verses == null
           ? 'Matthew 28:20'
-          : _verses![0].book.name! + ' ' + _verses![0].chapterId.toString() + ':' + versesString(),
-      style: Theme.of(context).textTheme.headline6?.copyWith(fontWeight: FontWeight.w500),
+          : _verses![0].book.name! +
+              ' ' +
+              _verses![0].chapterId.toString() +
+              ':' +
+              versesString(),
+      style: Theme.of(context)
+          .textTheme
+          .headline6
+          ?.copyWith(fontWeight: FontWeight.w500),
     );
   }
 }

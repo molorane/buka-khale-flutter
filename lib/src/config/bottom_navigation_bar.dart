@@ -1,5 +1,5 @@
 /*
-Elisha iOS & Android App
+Sso iOS & Android App
 Copyright (C) 2022 Carlton Aikins
 
 This program is free software: you can redistribute it and/or modify
@@ -24,7 +24,9 @@ class BottomNavBar extends ConsumerStatefulWidget {
   final int currentIndex;
   final void Function(int) onTabTapped;
 
-  const BottomNavBar(this.currentIndex, this.onTabTapped, {Key? key}) : super(key: key);
+  const BottomNavBar(this.currentIndex, this.onTabTapped, {Key? key})
+      : super(key: key);
+
   @override
   _BottomNavBarState createState() => _BottomNavBarState();
 }
@@ -40,7 +42,8 @@ class _BottomNavBarState extends ConsumerState<BottomNavBar> {
       backgroundColor: Theme.of(context).colorScheme.secondary,
       selectedItemColor: Theme.of(context).colorScheme.primary,
       unselectedItemColor: Theme.of(context).colorScheme.secondaryVariant,
-      selectedIconTheme: IconThemeData(color: Theme.of(context).primaryColor, size: 24),
+      selectedIconTheme:
+          IconThemeData(color: Theme.of(context).primaryColor, size: 24),
       items: const [
         BottomNavigationBarItem(
           label: 'Home',

@@ -1,5 +1,5 @@
 /*
-Elisha iOS & Android App
+Sso iOS & Android App
 Copyright (C) 2022 Carlton Aikins
 
 This program is free software: you can redistribute it and/or modify
@@ -38,9 +38,13 @@ class Verse {
     required this.favorite,
   });
 
-  String get bookChapterVerse => book.name! + ' ' + chapterId.toString() + ':' + verseId.toString();
+  String get bookChapterVerse =>
+      book.name! + ' ' + chapterId.toString() + ':' + verseId.toString();
 
-  bool get isFavorite => StudyToolsRepository().favoriteVerses.where((element) => element.id == id).isNotEmpty;
+  bool get isFavorite => StudyToolsRepository()
+      .favoriteVerses
+      .where((element) => element.id == id)
+      .isNotEmpty;
 
   Verse copyWith({
     int? id,
@@ -93,12 +97,27 @@ class Verse {
     );
   }
 
+  factory Verse.fromDB(Map<dynamic, dynamic> map) {
+    return Verse(
+      id: map['id'],
+      chapterId: map['chapter'],
+      verseId: map['verse'],
+      text: map['scripture'],
+      book: Book.fromDB(map),
+      favorite: false,
+    );
+  }
+
   factory Verse.fromMapFromVOTD(Map<String, dynamic> map, int verseNum) {
     final data = map['1'] as Map<String, dynamic>;
 
     final chapterId = data['chapter'] as int;
     final verseId = verseNum;
-    final book = Book(id: data['bookNumber'], name: data['book'], testament: 'New', chapters: const []);
+    final book = Book(
+        id: data['bookNumber'],
+        name: data['book'],
+        testament: 'New',
+        chapters: const []);
 
     return Verse(
       id: verseId,
@@ -134,6 +153,11 @@ class Verse {
 
   @override
   int get hashCode {
-    return id.hashCode ^ chapterId.hashCode ^ verseId.hashCode ^ text.hashCode ^ book.hashCode ^ favorite.hashCode;
+    return id.hashCode ^
+        chapterId.hashCode ^
+        verseId.hashCode ^
+        text.hashCode ^
+        book.hashCode ^
+        favorite.hashCode;
   }
 }

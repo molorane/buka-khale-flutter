@@ -1,5 +1,5 @@
 /*
-Elisha iOS & Android App
+Sso iOS & Android App
 Copyright (C) 2022 Carlton Aikins
 
 This program is free software: you can redistribute it and/or modify
@@ -22,6 +22,7 @@ class Reading {
   String? name;
   String? snippetAddress;
   String? text;
+
   Reading({
     this.name,
     this.snippetAddress,
@@ -58,16 +59,21 @@ class Reading {
 
   String toJson() => json.encode(toMap());
 
-  factory Reading.fromJson(String source) => Reading.fromMap(json.decode(source));
+  factory Reading.fromJson(String source) =>
+      Reading.fromMap(json.decode(source));
 
   @override
-  String toString() => 'Reading(name: $name, snippetAddress: $snippetAddress, text: $text)';
+  String toString() =>
+      'Reading(name: $name, snippetAddress: $snippetAddress, text: $text)';
 
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
 
-    return other is Reading && other.name == name && other.snippetAddress == snippetAddress && other.text == text;
+    return other is Reading &&
+        other.name == name &&
+        other.snippetAddress == snippetAddress &&
+        other.text == text;
   }
 
   @override

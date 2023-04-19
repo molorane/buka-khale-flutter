@@ -1,5 +1,5 @@
 /*
-Elisha iOS & Android App
+Sso iOS & Android App
 Copyright (C) 2022 Carlton Aikins
 
 This program is free software: you can redistribute it and/or modify
@@ -16,14 +16,14 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
+import 'package:buka_ea_khale/src/providers/streaks_repository_provider.dart';
 import 'package:canton_ui/canton_ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 
-import 'package:buka_ea_khale/src/providers/streaks_repository_provider.dart';
-
 class StreaksCard extends ConsumerWidget {
-  const StreaksCard({Key? key, required this.marginalPadding}) : super(key: key);
+  const StreaksCard({Key? key, required this.marginalPadding})
+      : super(key: key);
 
   final bool marginalPadding;
 
@@ -38,7 +38,9 @@ class StreaksCard extends ConsumerWidget {
     final perfectWeeks = streaksRepo.perfectWeeks.toString();
 
     return Container(
-      margin: marginalPadding ? const EdgeInsets.symmetric(horizontal: 17) : EdgeInsets.zero,
+      margin: marginalPadding
+          ? const EdgeInsets.symmetric(horizontal: 17)
+          : EdgeInsets.zero,
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12.0),
@@ -56,12 +58,16 @@ class StreaksCard extends ConsumerWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text(currentStreak, style: Theme.of(context).textTheme.headline2),
-                        Icon(LineAwesomeIcons.fire, size: 27, color: Theme.of(context).primaryColor),
+                        Text(currentStreak,
+                            style: Theme.of(context).textTheme.headline2),
+                        Icon(LineAwesomeIcons.fire,
+                            size: 27, color: Theme.of(context).primaryColor),
                       ],
                     ),
                   ),
-                  FittedBox(child: Text('Streak', style: Theme.of(context).textTheme.bodyText1)),
+                  FittedBox(
+                      child: Text('Streak',
+                          style: Theme.of(context).textTheme.bodyText1)),
                 ],
               ),
             ),
@@ -73,12 +79,16 @@ class StreaksCard extends ConsumerWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text(bestStreak, style: Theme.of(context).textTheme.headline2),
-                        Icon(LineAwesomeIcons.star, size: 27, color: Theme.of(context).primaryColor),
+                        Text(bestStreak,
+                            style: Theme.of(context).textTheme.headline2),
+                        Icon(LineAwesomeIcons.star,
+                            size: 27, color: Theme.of(context).primaryColor),
                       ],
                     ),
                   ),
-                  FittedBox(child: Text('Best Streak', style: Theme.of(context).textTheme.bodyText1)),
+                  FittedBox(
+                      child: Text('Best Streak',
+                          style: Theme.of(context).textTheme.bodyText1)),
                 ],
               ),
             ),
@@ -90,12 +100,16 @@ class StreaksCard extends ConsumerWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text(perfectWeeks, style: Theme.of(context).textTheme.headline2),
-                        Icon(LineAwesomeIcons.calendar, size: 27, color: Theme.of(context).primaryColor),
+                        Text(perfectWeeks,
+                            style: Theme.of(context).textTheme.headline2),
+                        Icon(LineAwesomeIcons.calendar,
+                            size: 27, color: Theme.of(context).primaryColor),
                       ],
                     ),
                   ),
-                  FittedBox(child: Text('Perfect Weeks', style: Theme.of(context).textTheme.bodyText1)),
+                  FittedBox(
+                      child: Text('Perfect Weeks',
+                          style: Theme.of(context).textTheme.bodyText1)),
                 ],
               ),
             ),

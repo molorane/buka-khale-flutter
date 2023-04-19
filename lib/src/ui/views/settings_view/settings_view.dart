@@ -1,5 +1,5 @@
 /*
-Elisha iOS & Android App
+Sso iOS & Android App
 Copyright (C) 2022 Carlton Aikins
 
 This program is free software: you can redistribute it and/or modify
@@ -16,15 +16,14 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-import 'package:canton_ui/canton_ui.dart';
-import 'package:buka_ea_khale/src/ui/views/settings_view/components/reader_settings_card.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-
 import 'package:buka_ea_khale/src/config/constants.dart';
 import 'package:buka_ea_khale/src/ui/views/settings_view/components/change_birth_date_card.dart';
 import 'package:buka_ea_khale/src/ui/views/settings_view/components/change_first_name_card.dart';
 import 'package:buka_ea_khale/src/ui/views/settings_view/components/change_last_name_card.dart';
+import 'package:buka_ea_khale/src/ui/views/settings_view/components/reader_settings_card.dart';
 import 'package:buka_ea_khale/src/ui/views/settings_view/components/settings_view_header.dart';
+import 'package:canton_ui/canton_ui.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class SettingsView extends ConsumerWidget {
   const SettingsView({Key? key}) : super(key: key);
@@ -50,7 +49,9 @@ class SettingsView extends ConsumerWidget {
           ),
           ConstrainedBox(
             constraints: const BoxConstraints(maxWidth: 500),
-            child: const Padding(padding: EdgeInsets.symmetric(horizontal: 17), child: Divider()),
+            child: const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 17),
+                child: Divider()),
           ),
           ConstrainedBox(
             constraints: const BoxConstraints(maxWidth: 500),
@@ -58,7 +59,9 @@ class SettingsView extends ConsumerWidget {
           ),
           ConstrainedBox(
             constraints: const BoxConstraints(maxWidth: 500),
-            child: const Padding(padding: EdgeInsets.symmetric(horizontal: 17), child: Divider()),
+            child: const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 17),
+                child: Divider()),
           ),
           ConstrainedBox(
             constraints: const BoxConstraints(maxWidth: 500),
@@ -72,7 +75,7 @@ class SettingsView extends ConsumerWidget {
           const SizedBox(height: kSmallPadding),
           Text(
             kVersionNumber,
-            style: Theme.of(context).textTheme.bodyText2?.copyWith(
+            style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                   fontWeight: FontWeight.w500,
                 ),
           ),

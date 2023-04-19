@@ -1,5 +1,5 @@
 /*
-Elisha iOS & Android App
+Sso iOS & Android App
 Copyright (C) 2022 Carlton Aikins
 
 This program is free software: you can redistribute it and/or modify
@@ -16,18 +16,20 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
+import 'package:buka_ea_khale/src/providers/daily_devotional_service_provider.dart';
 import 'package:canton_ui/canton_ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import 'package:buka_ea_khale/src/providers/daily_devotional_service_provider.dart';
+import '../../config/constants.dart';
 
 class DailyDevotionalCard extends ConsumerStatefulWidget {
   const DailyDevotionalCard({Key? key}) : super(key: key);
 
   @override
-  ConsumerState<DailyDevotionalCard> createState() => _DailyDevotionalCardState();
+  ConsumerState<DailyDevotionalCard> createState() =>
+      _DailyDevotionalCardState();
 }
 
 class _DailyDevotionalCardState extends ConsumerState<DailyDevotionalCard> {
@@ -97,7 +99,10 @@ class _DailyDevotionalCardState extends ConsumerState<DailyDevotionalCard> {
                   width: 75,
                   decoration: BoxDecoration(
                     gradient: LinearGradient(
-                      colors: [CantonColors.purple[500]!, CantonColors.purple[600]!],
+                      colors: [
+                        CantonColors.purple[500]!,
+                        CantonColors.purple[600]!
+                      ],
                       begin: Alignment.topRight,
                       end: Alignment.bottomRight,
                     ),
@@ -129,8 +134,11 @@ class _DailyDevotionalCardState extends ConsumerState<DailyDevotionalCard> {
 
   Widget _header(BuildContext context, Color bgColor) {
     return Text(
-      'Daily Devotional',
-      style: Theme.of(context).textTheme.headline4?.copyWith(fontWeight: FontWeight.bold),
+      'Bala lentsoe',
+      style: Theme.of(context)
+          .textTheme
+          .headline4
+          ?.copyWith(fontWeight: FontWeight.bold),
     );
   }
 
@@ -144,7 +152,7 @@ class _DailyDevotionalCardState extends ConsumerState<DailyDevotionalCard> {
           children: [
             Expanded(
               child: Text(
-                'Learn and Meditate on God\'s Word daily',
+                'Ithute o nahanise Lentsoe la Molimo kamehla',
                 overflow: TextOverflow.ellipsis,
                 maxLines: 2,
                 style: Theme.of(context).textTheme.headline5?.copyWith(
@@ -158,10 +166,11 @@ class _DailyDevotionalCardState extends ConsumerState<DailyDevotionalCard> {
         CantonPrimaryButton(
           containerWidth: 100,
           containerHeight: 40,
-          color: Theme.of(context).colorScheme.primary,
+          color: colorTheme,
           textColor: Theme.of(context).colorScheme.onBackground,
           padding: EdgeInsets.zero,
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
           buttonText: 'Read',
           onPressed: () async {
             await _onPressed(link);

@@ -1,5 +1,5 @@
 /*
-Elisha iOS & Android App
+Sso iOS & Android App
 Copyright (C) 2022 Carlton Aikins
 
 This program is free software: you can redistribute it and/or modify
@@ -16,14 +16,14 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-import 'package:dio/dio.dart';
-
 import 'package:buka_ea_khale/src/models/book.dart';
 import 'package:buka_ea_khale/src/models/verse.dart';
 import 'package:buka_ea_khale/src/services/bible_service.dart';
+import 'package:dio/dio.dart';
 
 class VerseOfTheDayService {
   const VerseOfTheDayService(this._dio);
+
   final Dio _dio;
   final _rootUrl = 'https://devotionalium.com/api/v2';
 

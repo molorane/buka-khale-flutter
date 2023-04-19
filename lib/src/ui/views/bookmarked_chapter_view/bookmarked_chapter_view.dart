@@ -1,5 +1,5 @@
 /*
-Elisha iOS & Android App
+Sso iOS & Android App
 Copyright (C) 2022 Carlton Aikins
 
 This program is free software: you can redistribute it and/or modify
@@ -16,13 +16,12 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-import 'package:canton_ui/canton_ui.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-
 import 'package:buka_ea_khale/src/models/chapter.dart';
 import 'package:buka_ea_khale/src/providers/study_tools_repository_provider.dart';
 import 'package:buka_ea_khale/src/ui/components/bible_reader.dart';
 import 'package:buka_ea_khale/src/ui/views/bookmarked_chapter_view/components/bookmarked_chapter_view_header.dart';
+import 'package:canton_ui/canton_ui.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class BookmarkedChapterView extends ConsumerStatefulWidget {
   const BookmarkedChapterView(this.chapter, {Key? key}) : super(key: key);
@@ -46,7 +45,9 @@ class _BookmarkedChapterViewState extends ConsumerState<BookmarkedChapterView> {
   Widget _content(BuildContext context) {
     return Column(
       children: [
-        BookmarkedChapterViewHeader(chapter: widget.chapter, showBottomSheet: _showBookmarkedChapterOptionsBottomSheet),
+        BookmarkedChapterViewHeader(
+            chapter: widget.chapter,
+            showBottomSheet: _showBookmarkedChapterOptionsBottomSheet),
         const SizedBox(height: 10),
         Expanded(
           child: SingleChildScrollView(
@@ -91,9 +92,12 @@ class _BookmarkedChapterViewState extends ConsumerState<BookmarkedChapterView> {
                         },
                         child: Text(
                           'Cancel',
-                          style: Theme.of(context).textTheme.headline6?.copyWith(
-                                color: Theme.of(context).colorScheme.secondaryVariant,
-                              ),
+                          style:
+                              Theme.of(context).textTheme.headline6?.copyWith(
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .secondaryVariant,
+                                  ),
                         ),
                       ),
                       const Spacer(flex: 7),
@@ -115,7 +119,9 @@ class _BookmarkedChapterViewState extends ConsumerState<BookmarkedChapterView> {
                         color: Theme.of(context).colorScheme.secondary,
                         textColor: Theme.of(context).colorScheme.error,
                         onPressed: () async {
-                          await ref.read(studyToolsRepositoryProvider.notifier).removeBookmarkChapter(chapter);
+                          await ref
+                              .read(studyToolsRepositoryProvider.notifier)
+                              .removeBookmarkChapter(chapter);
                           Navigator.pop(context);
                         },
                       ),

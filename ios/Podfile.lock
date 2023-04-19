@@ -93,6 +93,9 @@ PODS:
     - nanopb (< 2.30910.0, >= 2.30908.0)
     - PromisesSwift (~> 2.1)
   - Flutter (1.0.0)
+  - FMDB (2.7.5):
+    - FMDB/standard (= 2.7.5)
+  - FMDB/standard (2.7.5)
   - Google-Mobile-Ads-SDK (9.14.0):
     - GoogleAppMeasurement (< 11.0, >= 7.0)
     - GoogleUserMessagingPlatform (>= 1.1)
@@ -160,6 +163,9 @@ PODS:
   - shared_preferences_foundation (0.0.1):
     - Flutter
     - FlutterMacOS
+  - sqflite (0.0.2):
+    - Flutter
+    - FMDB (>= 2.7.5)
   - url_launcher_ios (0.0.1):
     - Flutter
   - video_player_avfoundation (0.0.1):
@@ -179,6 +185,7 @@ DEPENDENCIES:
   - path_provider_foundation (from `.symlinks/plugins/path_provider_foundation/ios`)
   - screen_brightness_ios (from `.symlinks/plugins/screen_brightness_ios/ios`)
   - shared_preferences_foundation (from `.symlinks/plugins/shared_preferences_foundation/ios`)
+  - sqflite (from `.symlinks/plugins/sqflite/ios`)
   - url_launcher_ios (from `.symlinks/plugins/url_launcher_ios/ios`)
   - video_player_avfoundation (from `.symlinks/plugins/video_player_avfoundation/ios`)
   - wakelock (from `.symlinks/plugins/wakelock/ios`)
@@ -197,6 +204,7 @@ SPEC REPOS:
     - FirebasePerformance
     - FirebaseRemoteConfig
     - FirebaseSessions
+    - FMDB
     - Google-Mobile-Ads-SDK
     - GoogleAppMeasurement
     - GoogleDataTransport
@@ -225,6 +233,8 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/screen_brightness_ios/ios"
   shared_preferences_foundation:
     :path: ".symlinks/plugins/shared_preferences_foundation/ios"
+  sqflite:
+    :path: ".symlinks/plugins/sqflite/ios"
   url_launcher_ios:
     :path: ".symlinks/plugins/url_launcher_ios/ios"
   video_player_avfoundation:
@@ -251,6 +261,7 @@ SPEC CHECKSUMS:
   FirebaseRemoteConfig: d5de62211e2eaa2152d8ee85a23c301b70887a74
   FirebaseSessions: 34e5c084da010ef3802cbc062b822e513c9e6318
   Flutter: f04841e97a9d0b0a8025694d0796dd46242b2854
+  FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   Google-Mobile-Ads-SDK: 4fe6304b771f8467d29978cb790ec1e56e646946
   google_mobile_ads: 528ab4673c5b5fd36321b7e90fc585064cdbaf2b
   GoogleAppMeasurement: fe17c92a32207dd5cdd4e8d742767f2da74857f6
@@ -263,11 +274,12 @@ SPEC CHECKSUMS:
   PromisesSwift: cf9eb58666a43bbe007302226e510b16c1e10959
   screen_brightness_ios: dd110ebfe9602013ea863d59770a9192ebbb7ac7
   shared_preferences_foundation: 986fc17f3d3251412d18b0265f9c64113a8c2472
+  sqflite: 6d358c025f5b867b29ed92fc697fd34924e11904
   url_launcher_ios: 08a3dfac5fb39e8759aeb0abbd5d9480f30fc8b4
   video_player_avfoundation: 81e49bb3d9fb63dccf9fa0f6d877dc3ddbeac126
   wakelock: d0fc7c864128eac40eba1617cb5264d9c940b46f
   webview_flutter_wkwebview: b7e70ef1ddded7e69c796c7390ee74180182971f
 
-PODFILE CHECKSUM: 4e8f8b2be68aeea4c0d5beb6ff1e79fface1d048
+PODFILE CHECKSUM: 7368163408c647b7eb699d0d788ba6718e18fb8d
 
-COCOAPODS: 1.12.0
+COCOAPODS: 1.12.1

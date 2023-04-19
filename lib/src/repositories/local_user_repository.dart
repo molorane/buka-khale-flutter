@@ -1,5 +1,5 @@
 /*
-Elisha iOS & Android App
+Sso iOS & Android App
 Copyright (C) 2022 Carlton Aikins
 
 This program is free software: you can redistribute it and/or modify
@@ -18,28 +18,31 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import 'dart:math';
 
-import 'package:flutter/material.dart';
-
-import 'package:hive_flutter/hive_flutter.dart';
-
 import 'package:buka_ea_khale/src/config/constants.dart';
 import 'package:buka_ea_khale/src/models/local_user.dart';
+import 'package:flutter/material.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
 class LocalUserRepository extends ChangeNotifier {
-  var _localUser = LocalUser(firstName: '', lastName: '', birthDate: DateTime.now());
+  var _localUser =
+      LocalUser(firstName: '', lastName: '', birthDate: DateTime.now());
   var _loginCount = 0;
   var _natureImage = natureImages[0];
   var _churchImage = churchImages[0];
   var _lastChurchYTChannel = 'UCubahKRKNc4cj3sZSAmc-Nw';
 
   LocalUser get getUser => _localUser;
+
   int get getLoginCount => _loginCount;
+
   String get getNatureImage => _natureImage;
+
   String get getChurchImage => _churchImage;
+
   String get getLastChurchYTChannel => _lastChurchYTChannel;
 
   Future<void> updateUser(LocalUser user) async {
-    final box = Hive.box('elisha');
+    final box = Hive.box('sso');
 
     _localUser = user;
     await box.put('user', _localUser.toJson());
@@ -47,7 +50,7 @@ class LocalUserRepository extends ChangeNotifier {
   }
 
   Future<void> _updateLoginCount() async {
-    final box = Hive.box('elisha');
+    final box = Hive.box('sso');
 
     _loginCount++;
     await box.put('login_count', _loginCount);
@@ -55,7 +58,7 @@ class LocalUserRepository extends ChangeNotifier {
   }
 
   Future<void> updateNatureImage() async {
-    final box = Hive.box('elisha');
+    final box = Hive.box('sso');
 
     _natureImage = natureImages[Random().nextInt(10)];
     await box.put('nature_image', _natureImage);
@@ -63,7 +66,7 @@ class LocalUserRepository extends ChangeNotifier {
   }
 
   Future<void> updateChurchImage() async {
-    final box = Hive.box('elisha');
+    final box = Hive.box('sso');
 
     _churchImage = churchImages[Random().nextInt(3)];
     await box.put('church_image', _churchImage);
@@ -71,7 +74,7 @@ class LocalUserRepository extends ChangeNotifier {
   }
 
   Future<void> updateLastChurchYTChannel(String channelId) async {
-    final box = Hive.box('elisha');
+    final box = Hive.box('sso');
 
     _lastChurchYTChannel = channelId;
     await box.put('last_church_yt_channel', _lastChurchYTChannel);
@@ -79,7 +82,7 @@ class LocalUserRepository extends ChangeNotifier {
   }
 
   void loadUser() async {
-    final box = Hive.box('elisha');
+    final box = Hive.box('sso');
 
     /// Removes user from device.
     // box.delete('user');
@@ -96,14 +99,16 @@ class LocalUserRepository extends ChangeNotifier {
     int loginCount = box.get('login_count', defaultValue: 0);
     String natureImage = box.get('nature_image', defaultValue: natureImages[0]);
     String churchImage = box.get('church_image', defaultValue: churchImages[0]);
-    String lastChurchYTChannel = box.get('last_church_yt_channel', defaultValue: 'UCubahKRKNc4cj3sZSAmc-Nw');
+    String lastChurchYTChannel = box.get('last_church_yt_channel',
+        defaultValue: 'UCubahKRKNc4cj3sZSAmc-Nw');
 
     _localUser = LocalUser.fromJson(user);
     _natureImage = natureImage;
     _churchImage = churchImage;
     _lastChurchYTChannel = lastChurchYTChannel;
 
-    if (user == '' || [_localUser.firstName, _localUser.lastName].contains('')) {
+    if (user == '' ||
+        [_localUser.firstName, _localUser.lastName].contains('')) {
       _loginCount = 0;
     } else {
       _loginCount = loginCount;

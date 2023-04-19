@@ -1,5 +1,5 @@
 /*
-Elisha iOS & Android App
+Sso iOS & Android App
 Copyright (C) 2022 Carlton Aikins
 
 This program is free software: you can redistribute it and/or modify
@@ -16,22 +16,23 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-
 import 'package:buka_ea_khale/src/models/verse.dart';
 import 'package:buka_ea_khale/src/providers/bible_books_provider.dart';
 import 'package:buka_ea_khale/src/providers/bible_chapters_provider.dart';
 import 'package:buka_ea_khale/src/providers/bible_service_provider.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 String verseID = '';
 
-final bibleVersesProvider = FutureProvider.autoDispose<List<Verse>>((ref) async {
+final bibleVersesProvider =
+    FutureProvider.autoDispose<List<Verse>>((ref) async {
   ref.maintainState = true;
 
   bool bookIDIsEmpty = ['', null].contains(verseID);
 
   final bibleService = ref.watch(bibleServiceProvider);
-  final verses = bibleService.getVerses(bookID, chapterID, bookIDIsEmpty ? null : verseID);
+  final verses =
+      bibleService.getVerses(bookID, chapterID, bookIDIsEmpty ? null : verseID);
 
   return verses;
 });

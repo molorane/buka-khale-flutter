@@ -1,5 +1,5 @@
 /*
-Elisha iOS & Android App
+Sso iOS & Android App
 Copyright (C) 2022 Carlton Aikins
 
 This program is free software: you can redistribute it and/or modify
@@ -16,17 +16,17 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
+import 'package:buka_ea_khale/src/providers/reader_settings_repository_provider.dart';
+import 'package:buka_ea_khale/src/ui/views/daily_devotional_view/components/daily_devotional_view_header.dart';
 import 'package:canton_ui/canton_ui.dart';
 import 'package:flutter_html/flutter_html.dart' as htm;
 import 'package:flutter_linkify/flutter_linkify.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import 'package:buka_ea_khale/src/providers/reader_settings_repository_provider.dart';
-import 'package:buka_ea_khale/src/ui/views/daily_devotional_view/components/daily_devotional_view_header.dart';
-
 class DailyDevotionalView extends ConsumerWidget {
-  const DailyDevotionalView({Key? key, required this.htmlData}) : super(key: key);
+  const DailyDevotionalView({Key? key, required this.htmlData})
+      : super(key: key);
 
   final String htmlData;
 
@@ -64,8 +64,10 @@ class DailyDevotionalView extends ConsumerWidget {
                 constraints: const BoxConstraints(maxWidth: 700),
                 child: htm.Html(
                   style: {
-                    'h1': htm.Style(fontSize: const htm.FontSize(32), fontFamily: font),
-                    'center': htm.Style(fontSize: const htm.FontSize(20), fontFamily: font),
+                    'h1': htm.Style(
+                        fontSize: const htm.FontSize(32), fontFamily: font),
+                    'center': htm.Style(
+                        fontSize: const htm.FontSize(20), fontFamily: font),
                     'b': htm.Style(
                       fontSize: const htm.FontSize(18),
                       lineHeight: const htm.LineHeight(1.5),
@@ -84,7 +86,8 @@ class DailyDevotionalView extends ConsumerWidget {
               ConstrainedBox(
                 constraints: const BoxConstraints(maxWidth: 700),
                 child: Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 17, vertical: 10),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 17, vertical: 10),
                   decoration: BoxDecoration(
                     color: Theme.of(context).colorScheme.secondary,
                     borderRadius: BorderRadius.circular(7),
@@ -98,7 +101,7 @@ class DailyDevotionalView extends ConsumerWidget {
                       }
                     },
                     text:
-                        'Daily Devotional is courtesy of © 2022 DAILY SCRIPTURE READINGS AND MEDITATIONS. Their Website is located at https://www.dailyscripture.net/daily-meditation/',
+                        'Ho fumana Lentso matsatsi ohle. Sheba Website e fumaneha mona https://dclm.org/',
                     style: Theme.of(context).textTheme.headline6,
                     linkStyle: Theme.of(context).textTheme.headline6?.copyWith(
                           color: Theme.of(context).colorScheme.onPrimary,

@@ -1,5 +1,5 @@
 /*
-Elisha iOS & Android App
+Sso iOS & Android App
 Copyright (C) 2022 Carlton Aikins
 
 This program is free software: you can redistribute it and/or modify
@@ -55,16 +55,19 @@ class DailyDevotional {
     return DailyDevotional(
       title: map['title'] ?? '',
       date: DateTime.fromMillisecondsSinceEpoch(map['date']),
-      sections: List<DailyDevotionalSection>.from(map['sections']?.map((x) => DailyDevotionalSection.fromMap(x))),
+      sections: List<DailyDevotionalSection>.from(
+          map['sections']?.map((x) => DailyDevotionalSection.fromMap(x))),
     );
   }
 
   String toJson() => json.encode(toMap());
 
-  factory DailyDevotional.fromJson(String source) => DailyDevotional.fromMap(json.decode(source));
+  factory DailyDevotional.fromJson(String source) =>
+      DailyDevotional.fromMap(json.decode(source));
 
   @override
-  String toString() => 'DailyDevotional(title: $title, date: $date, sections: $sections)';
+  String toString() =>
+      'DailyDevotional(title: $title, date: $date, sections: $sections)';
 
   @override
   bool operator ==(Object other) {
@@ -121,10 +124,12 @@ class DailyDevotionalSection {
 
   String toJson() => json.encode(toMap());
 
-  factory DailyDevotionalSection.fromJson(String source) => DailyDevotionalSection.fromMap(json.decode(source));
+  factory DailyDevotionalSection.fromJson(String source) =>
+      DailyDevotionalSection.fromMap(json.decode(source));
 
   @override
-  String toString() => 'DailyDevotionalSection(title: $title, subtitle: $subtitle, content: $content)';
+  String toString() =>
+      'DailyDevotionalSection(title: $title, subtitle: $subtitle, content: $content)';
 
   @override
   bool operator ==(Object other) {

@@ -1,5 +1,5 @@
 /*
-Elisha iOS & Android App
+Sso iOS & Android App
 Copyright (C) 2022 Carlton Aikins
 
 This program is free software: you can redistribute it and/or modify
@@ -45,7 +45,10 @@ class TermsAndPrivacyPolicyText extends ConsumerWidget {
           text: 'By signing up, you agree to our Terms and Privacy Policy.',
           style: Theme.of(context).textTheme.bodyText2,
           textAlign: TextAlign.center,
-          linkStyle: Theme.of(context).textTheme.bodyText2?.copyWith(decoration: TextDecoration.underline),
+          linkStyle: Theme.of(context)
+              .textTheme
+              .bodyText2
+              ?.copyWith(decoration: TextDecoration.underline),
         )
       ],
     );

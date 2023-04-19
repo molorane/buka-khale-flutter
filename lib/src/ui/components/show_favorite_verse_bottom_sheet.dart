@@ -1,5 +1,5 @@
 /*
-Elisha iOS & Android App
+Sso iOS & Android App
 Copyright (C) 2022 Carlton Aikins
 
 This program is free software: you can redistribute it and/or modify
@@ -16,17 +16,16 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-import 'package:flutter/services.dart';
-
-import 'package:canton_ui/canton_ui.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:line_awesome_flutter/line_awesome_flutter.dart';
-
 import 'package:buka_ea_khale/src/config/constants.dart';
 import 'package:buka_ea_khale/src/models/verse.dart';
 import 'package:buka_ea_khale/src/providers/study_tools_repository_provider.dart';
+import 'package:canton_ui/canton_ui.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 
-Future<void> showFavoriteVerseBottomSheet(BuildContext context, Verse verse) async {
+Future<void> showFavoriteVerseBottomSheet(
+    BuildContext context, Verse verse) async {
   return await showModalBottomSheet(
     context: context,
     isScrollControlled: true,
@@ -51,9 +50,11 @@ Future<void> showFavoriteVerseBottomSheet(BuildContext context, Verse verse) asy
 
                 Icon icon() {
                   if (_isFavoriteVerse) {
-                    return Icon(LineAwesomeIcons.heart_1, size: 36, color: heartColor(context));
+                    return Icon(LineAwesomeIcons.heart_1,
+                        size: 36, color: heartColor(context));
                   }
-                  return Icon(LineAwesomeIcons.heart, size: 36, color: Theme.of(context).colorScheme.primary);
+                  return Icon(LineAwesomeIcons.heart,
+                      size: 36, color: Theme.of(context).colorScheme.primary);
                 }
 
                 return Column(
@@ -61,7 +62,8 @@ Future<void> showFavoriteVerseBottomSheet(BuildContext context, Verse verse) asy
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Container(
-                      padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 27),
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 20, horizontal: 27),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -91,9 +93,13 @@ Future<void> showFavoriteVerseBottomSheet(BuildContext context, Verse verse) asy
                           });
 
                           if (_isFavoriteVerse) {
-                            await ref.read(studyToolsRepositoryProvider).addFavoriteVerse(verse);
+                            await ref
+                                .read(studyToolsRepositoryProvider)
+                                .addFavoriteVerse(verse);
                           } else {
-                            await ref.read(studyToolsRepositoryProvider).removeFavoriteVerse(verse);
+                            await ref
+                                .read(studyToolsRepositoryProvider)
+                                .removeFavoriteVerse(verse);
                           }
                         },
                       ),

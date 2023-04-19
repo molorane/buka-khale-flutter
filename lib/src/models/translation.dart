@@ -1,5 +1,5 @@
 /*
-Elisha iOS & Android App
+Sso iOS & Android App
 Copyright (C) 2022 Carlton Aikins
 
 This program is free software: you can redistribute it and/or modify
@@ -65,7 +65,8 @@ class Translation {
 
   String toJson() => json.encode(toMap());
 
-  factory Translation.fromJson(String source) => Translation.fromMap(json.decode(source));
+  factory Translation.fromJson(String source) =>
+      Translation.fromMap(json.decode(source));
 
   @override
   String toString() {
@@ -85,6 +86,9 @@ class Translation {
 
   @override
   int get hashCode {
-    return id.hashCode ^ name.hashCode ^ abbreviation.hashCode ^ language.hashCode;
+    return id.hashCode ^
+        name.hashCode ^
+        abbreviation.hashCode ^
+        language.hashCode;
   }
 }

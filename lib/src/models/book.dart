@@ -1,5 +1,5 @@
 /*
-Elisha iOS & Android App
+Sso iOS & Android App
 Copyright (C) 2022 Carlton Aikins
 
 This program is free software: you can redistribute it and/or modify
@@ -18,9 +18,8 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import 'dart:convert';
 
-import 'package:flutter/foundation.dart';
-
 import 'package:buka_ea_khale/src/models/chapter.dart';
+import 'package:flutter/foundation.dart';
 
 class Book {
   int? id;
@@ -62,6 +61,15 @@ class Book {
     return Book(
       id: map['id'],
       name: map['name'],
+      testament: map['testament'],
+      chapters: [],
+    );
+  }
+
+  factory Book.fromDB(Map<dynamic, dynamic> map) {
+    return Book(
+      id: map['book_id'],
+      name: map['book'],
       testament: map['testament'],
       chapters: [],
     );

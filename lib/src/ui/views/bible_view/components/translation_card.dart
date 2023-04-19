@@ -1,5 +1,5 @@
 /*
-Elisha iOS & Android App
+Sso iOS & Android App
 Copyright (C) 2022 Carlton Aikins
 
 This program is free software: you can redistribute it and/or modify
@@ -16,11 +16,10 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-import 'package:canton_ui/canton_ui.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-
 import 'package:buka_ea_khale/src/models/translation.dart';
 import 'package:buka_ea_khale/src/providers/last_translation_book_chapter_provider.dart';
+import 'package:canton_ui/canton_ui.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class TranslationCard extends ConsumerWidget {
   const TranslationCard({

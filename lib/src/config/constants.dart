@@ -1,5 +1,5 @@
 /*
-Elisha iOS & Android App
+Sso iOS & Android App
 Copyright (C) 2022 Carlton Aikins
 
 This program is free software: you can redistribute it and/or modify
@@ -18,9 +18,9 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import 'package:canton_ui/canton_ui.dart';
 
-const String kAppTitle = 'Elisha';
+const String kAppTitle = 'Sso';
 
-const String kVersionNumber = 'Elisha v1.1.4 (14)';
+const String kVersionNumber = 'Sso 1.0.1';
 
 const natureImages = <String>[
   'assets/images/nature_1.jpg',
@@ -47,3 +47,5 @@ Color heartColor(BuildContext context) {
   }
   return CantonColors.red[400]!;
 }
+
+const colorTheme = Color(0xffb00020);

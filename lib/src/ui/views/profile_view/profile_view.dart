@@ -1,5 +1,5 @@
 /*
-Elisha iOS & Android App
+Sso iOS & Android App
 Copyright (C) 2022 Carlton Aikins
 
 This program is free software: you can redistribute it and/or modify
@@ -16,10 +16,6 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-import 'package:canton_ui/canton_ui.dart';
-import 'package:buka_ea_khale/src/ui/views/profile_view/components/support_card.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-
 import 'package:buka_ea_khale/src/ui/components/streaks_card.dart';
 import 'package:buka_ea_khale/src/ui/views/profile_view/components/about_card.dart';
 import 'package:buka_ea_khale/src/ui/views/profile_view/components/bookmarks_card.dart';
@@ -27,6 +23,9 @@ import 'package:buka_ea_khale/src/ui/views/profile_view/components/favorite_vers
 import 'package:buka_ea_khale/src/ui/views/profile_view/components/privacy_policy_card.dart';
 import 'package:buka_ea_khale/src/ui/views/profile_view/components/profile_view_header.dart';
 import 'package:buka_ea_khale/src/ui/views/profile_view/components/settings_card.dart';
+import 'package:buka_ea_khale/src/ui/views/profile_view/components/support_card.dart';
+import 'package:canton_ui/canton_ui.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class ProfileView extends ConsumerWidget {
   const ProfileView({Key? key}) : super(key: key);

@@ -1,5 +1,5 @@
 /*
-Elisha iOS & Android App
+Sso iOS & Android App
 Copyright (C) 2022 Carlton Aikins
 
 This program is free software: you can redistribute it and/or modify
@@ -16,11 +16,10 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-import 'package:canton_ui/canton_ui.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-
 import 'package:buka_ea_khale/src/models/chapter.dart';
 import 'package:buka_ea_khale/src/ui/views/bookmarked_chapter_view/bookmarked_chapter_view.dart';
+import 'package:canton_ui/canton_ui.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class BookmarkedChapterCard extends ConsumerWidget {
   const BookmarkedChapterCard({
@@ -42,7 +41,8 @@ class BookmarkedChapterCard extends ConsumerWidget {
 
     return GestureDetector(
       onTap: () {
-        CantonMethods.viewTransition(context, BookmarkedChapterView(chapter)).then((value) => setState(() {}));
+        CantonMethods.viewTransition(context, BookmarkedChapterView(chapter))
+            .then((value) => setState(() {}));
       },
       child: ListTile(
         contentPadding: const EdgeInsets.symmetric(horizontal: 17),

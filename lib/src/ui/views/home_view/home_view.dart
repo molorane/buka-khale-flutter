@@ -1,5 +1,5 @@
 /*
-Elisha iOS & Android App
+Sso iOS & Android App
 Copyright (C) 2022 Carlton Aikins
 
 This program is free software: you can redistribute it and/or modify
@@ -16,16 +16,15 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-import 'package:canton_ui/canton_ui.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:google_mobile_ads/google_mobile_ads.dart';
-
 import 'package:buka_ea_khale/src/providers/ad_state_provider.dart';
 import 'package:buka_ea_khale/src/services/ad_state.dart';
 import 'package:buka_ea_khale/src/ui/components/daily_devotional_card.dart';
 import 'package:buka_ea_khale/src/ui/components/streaks_card.dart';
 import 'package:buka_ea_khale/src/ui/components/verse_of_the_day_card.dart';
 import 'package:buka_ea_khale/src/ui/views/home_view/components/home_view_header.dart';
+import 'package:canton_ui/canton_ui.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 class HomeView extends ConsumerStatefulWidget {
   const HomeView({Key? key}) : super(key: key);
@@ -124,14 +123,9 @@ class _HomeViewState extends ConsumerState<HomeView> {
           constraints: const BoxConstraints(maxWidth: 500),
           child: const VerseOfTheDayCard(),
         ),
-        homeViewBannerAdIsLoaded ? const SizedBox(height: 27) : const SizedBox(height: 17),
-        if (homeViewBannerAdIsLoaded)
-          Container(
-            padding: const EdgeInsets.only(bottom: 10),
-            width: _ad!.size.width.toDouble(),
-            height: _ad!.size.height.toDouble(),
-            child: AdWidget(ad: _ad!),
-          ),
+        homeViewBannerAdIsLoaded
+            ? const SizedBox(height: 27)
+            : const SizedBox(height: 17),
         if (homeViewBannerAdIsLoaded) const SizedBox(height: 17),
         ConstrainedBox(
           constraints: const BoxConstraints(maxWidth: 500),

@@ -1,5 +1,5 @@
 /*
-Elisha iOS & Android App
+Sso iOS & Android App
 Copyright (C) 2022 Carlton Aikins
 
 This program is free software: you can redistribute it and/or modify
@@ -16,18 +16,16 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-import 'package:flutter/gestures.dart';
-import 'package:flutter/services.dart';
-
-import 'package:canton_ui/canton_ui.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:line_awesome_flutter/line_awesome_flutter.dart';
-
 import 'package:buka_ea_khale/src/config/constants.dart';
 import 'package:buka_ea_khale/src/models/chapter.dart';
 import 'package:buka_ea_khale/src/providers/reader_settings_repository_provider.dart';
 import 'package:buka_ea_khale/src/providers/study_tools_repository_provider.dart';
 import 'package:buka_ea_khale/src/ui/components/show_favorite_verse_bottom_sheet.dart';
+import 'package:canton_ui/canton_ui.dart';
+import 'package:flutter/gestures.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 
 class BibleReader extends ConsumerWidget {
   const BibleReader({Key? key, required this.chapter}) : super(key: key);
@@ -45,17 +43,27 @@ class BibleReader extends ConsumerWidget {
           TextSpan(children: spans),
           style: Theme.of(context).textTheme.headline5!.copyWith(
                 fontWeight: FontWeight.w400,
-                fontSize: ref.watch(readerSettingsRepositoryProvider.notifier).bodyTextSize * 1.4,
-                height: ref.watch(readerSettingsRepositoryProvider.notifier).bodyTextHeight * 1.1,
-                fontFamily: ref.watch(readerSettingsRepositoryProvider).typeFace,
+                fontSize: ref
+                        .watch(readerSettingsRepositoryProvider.notifier)
+                        .bodyTextSize *
+                    1.4,
+                height: ref
+                        .watch(readerSettingsRepositoryProvider.notifier)
+                        .bodyTextHeight *
+                    1.1,
+                fontFamily:
+                    ref.watch(readerSettingsRepositoryProvider).typeFace,
               ),
         ),
       ),
     );
     for (int i = 0; i < chapter.verses!.length; i++) {
       var item = chapter.verses![i];
-      var _isFavoriteVerse =
-          ref.watch(studyToolsRepositoryProvider).favoriteVerses.where((element) => element.id == item.id).isNotEmpty;
+      var _isFavoriteVerse = ref
+          .watch(studyToolsRepositoryProvider)
+          .favoriteVerses
+          .where((element) => element.id == item.id)
+          .isNotEmpty;
 
       spans.add(
         WidgetSpan(
@@ -73,16 +81,24 @@ class BibleReader extends ConsumerWidget {
                   if (_isFavoriteVerse)
                     Icon(
                       LineAwesomeIcons.heart_1,
-                      size: ref.watch(readerSettingsRepositoryProvider).verseNumberSize * 1.3,
+                      size: ref
+                              .watch(readerSettingsRepositoryProvider)
+                              .verseNumberSize *
+                          1.3,
                       color: heartColor(context),
                     ),
                   Text(
                     item.verseId.toString(),
                     style: Theme.of(context).textTheme.bodyText1?.copyWith(
-                          color: Theme.of(context).colorScheme.secondaryVariant,
-                          fontSize: ref.watch(readerSettingsRepositoryProvider).verseNumberSize * 1.1,
+                          color: colorTheme,
+                          fontSize: ref
+                                  .watch(readerSettingsRepositoryProvider)
+                                  .verseNumberSize *
+                              2,
                           // height: ref.watch(readerSettingsRepositoryProvider).verseNumberHeight,
-                          fontFamily: ref.watch(readerSettingsRepositoryProvider).typeFace,
+                          fontFamily: ref
+                              .watch(readerSettingsRepositoryProvider)
+                              .typeFace,
                         ),
                   ),
                   if (!_isFavoriteVerse)

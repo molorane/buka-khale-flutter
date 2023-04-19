@@ -1,5 +1,5 @@
 /*
-Elisha iOS & Android App
+Sso iOS & Android App
 Copyright (C) 2022 Carlton Aikins
 
 This program is free software: you can redistribute it and/or modify
@@ -18,13 +18,13 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import 'dart:io';
 
-import 'package:flutter/cupertino.dart';
-
+import 'package:buka_ea_khale/src/providers/local_user_repository_provider.dart';
 import 'package:canton_ui/canton_ui.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 
-import 'package:buka_ea_khale/src/providers/local_user_repository_provider.dart';
+import '../../../../config/constants.dart';
 
 class ChangeBirthDateCard extends ConsumerWidget {
   const ChangeBirthDateCard({Key? key}) : super(key: key);
@@ -38,13 +38,14 @@ class ChangeBirthDateCard extends ConsumerWidget {
     final lastDate = DateTime.now();
     String currentBirthdayStr() {
       final bday = ref.watch(localUserRepositoryProvider).getUser.birthDate;
-      return 'Current Birthday: ' + (bday != null ? DateFormat('yMMMd').format(bday) : 'None');
+      return 'Current Birthday: ' +
+          (bday != null ? DateFormat('yMMMd').format(bday) : 'None');
     }
 
     return CantonExpansionTile(
       title: Text(
-        'Change Birthday',
-        style: Theme.of(context).textTheme.headline6,
+        'Fetola tsatsi la tsoalo',
+        style: Theme.of(context).textTheme.titleLarge,
       ),
       decoration: BoxDecoration(
         color: CantonMethods.alternateCanvasColorType3(context),
@@ -60,7 +61,7 @@ class ChangeBirthDateCard extends ConsumerWidget {
             children: [
               Text(
                 currentBirthdayStr(),
-                style: Theme.of(context).textTheme.bodyText1,
+                style: Theme.of(context).textTheme.bodyMedium,
               ),
               const SizedBox(height: 10),
               SizedBox(
@@ -99,16 +100,21 @@ class ChangeBirthDateCard extends ConsumerWidget {
                 children: [
                   CantonPrimaryButton(
                     buttonText: 'Confirm',
-                    color: Theme.of(context).colorScheme.primary,
+                    color: colorTheme,
                     textColor: Theme.of(context).colorScheme.onBackground,
                     containerWidth: 100,
                     containerHeight: 30,
                     padding: EdgeInsets.zero,
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30)),
                     onPressed: () {
-                      final updatedUser =
-                          ref.watch(localUserRepositoryProvider).getUser.copyWith(birthDate: _controller);
-                      ref.read(localUserRepositoryProvider).updateUser(updatedUser);
+                      final updatedUser = ref
+                          .watch(localUserRepositoryProvider)
+                          .getUser
+                          .copyWith(birthDate: _controller);
+                      ref
+                          .read(localUserRepositoryProvider)
+                          .updateUser(updatedUser);
                       Navigator.of(context).pop();
                     },
                   ),

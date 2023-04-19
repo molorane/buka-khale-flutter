@@ -1,5 +1,5 @@
 /*
-Elisha iOS & Android App
+Sso iOS & Android App
 Copyright (C) 2022 Carlton Aikins
 
 This program is free software: you can redistribute it and/or modify
@@ -20,7 +20,8 @@ import 'package:canton_ui/canton_ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class FirstNameInput extends ConsumerWidget {
-  const FirstNameInput({Key? key, required this.firstNameController}) : super(key: key);
+  const FirstNameInput({Key? key, required this.firstNameController})
+      : super(key: key);
 
   final TextEditingController firstNameController;
 

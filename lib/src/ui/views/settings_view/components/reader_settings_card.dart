@@ -1,5 +1,5 @@
 /*
-Elisha iOS & Android App
+Sso iOS & Android App
 Copyright (C) 2022 Carlton Aikins
 
 This program is free software: you can redistribute it and/or modify
@@ -16,8 +16,8 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-import 'package:canton_ui/canton_ui.dart';
 import 'package:buka_ea_khale/src/providers/reader_settings_repository_provider.dart';
+import 'package:canton_ui/canton_ui.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
@@ -41,15 +41,16 @@ class ReaderSettingsCard extends ConsumerWidget {
           padding: const EdgeInsets.symmetric(vertical: 17, horizontal: 17),
           alignment: Alignment.centerLeft,
           child: Text(
-            'Adjust Reader Settings',
-            style: Theme.of(context).textTheme.headline6,
+            'Fetola Lisettings',
+            style: Theme.of(context).textTheme.titleLarge,
           ),
         ),
       ),
     );
   }
 
-  Future<void> _showReaderSettingsBottomSheet(BuildContext context, WidgetRef ref) async {
+  Future<void> _showReaderSettingsBottomSheet(
+      BuildContext context, WidgetRef ref) async {
     var screenBrightness = await ScreenBrightness().system;
 
     return await showModalBottomSheet(
@@ -91,12 +92,17 @@ class ReaderSettingsCard extends ConsumerWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text('Text Size', style: Theme.of(context).textTheme.headline5),
+                    Text('Text Size',
+                        style: Theme.of(context).textTheme.headline5),
                     const Spacer(),
                     GestureDetector(
                       onTap: () async {
-                        await ref.read(readerSettingsRepositoryProvider).decrementBodyTextSize();
-                        await ref.read(readerSettingsRepositoryProvider).decrementVerseNumberSize();
+                        await ref
+                            .read(readerSettingsRepositoryProvider)
+                            .decrementBodyTextSize();
+                        await ref
+                            .read(readerSettingsRepositoryProvider)
+                            .decrementVerseNumberSize();
                         setState(() {});
                       },
                       child: Container(
@@ -110,10 +116,14 @@ class ReaderSettingsCard extends ConsumerWidget {
                         child: Text(
                           'A',
                           textAlign: TextAlign.center,
-                          style: Theme.of(context).textTheme.headline6?.copyWith(
+                          style: Theme.of(context)
+                              .textTheme
+                              .headline6
+                              ?.copyWith(
                                 fontSize: 16,
                                 height: 1.25,
-                                color: Theme.of(context).colorScheme.onBackground,
+                                color:
+                                    Theme.of(context).colorScheme.onBackground,
                               ),
                         ),
                       ),
@@ -121,8 +131,12 @@ class ReaderSettingsCard extends ConsumerWidget {
                     const SizedBox(width: 10),
                     GestureDetector(
                       onTap: () async {
-                        await ref.read(readerSettingsRepositoryProvider).incrementBodyTextSize();
-                        await ref.read(readerSettingsRepositoryProvider).incrementVerseNumberSize();
+                        await ref
+                            .read(readerSettingsRepositoryProvider)
+                            .incrementBodyTextSize();
+                        await ref
+                            .read(readerSettingsRepositoryProvider)
+                            .incrementVerseNumberSize();
                         setState(() {});
                       },
                       child: Container(
@@ -136,10 +150,14 @@ class ReaderSettingsCard extends ConsumerWidget {
                         child: Text(
                           'A',
                           textAlign: TextAlign.center,
-                          style: Theme.of(context).textTheme.headline6?.copyWith(
+                          style: Theme.of(context)
+                              .textTheme
+                              .headline6
+                              ?.copyWith(
                                 fontSize: 24,
                                 height: 1.25,
-                                color: Theme.of(context).colorScheme.onBackground,
+                                color:
+                                    Theme.of(context).colorScheme.onBackground,
                               ),
                         ),
                       ),
@@ -160,32 +178,38 @@ class ReaderSettingsCard extends ConsumerWidget {
                     children: [
                       GestureDetector(
                         onTap: () async {
-                          await ref.read(readerSettingsRepositoryProvider).setTypeFace('New York');
+                          await ref
+                              .read(readerSettingsRepositoryProvider)
+                              .setTypeFace('New York');
                           setState(() {});
                         },
                         child: Padding(
                           padding: const EdgeInsets.symmetric(vertical: 8.0),
                           child: Text(
                             'New York',
-                            style: Theme.of(context).textTheme.headline4?.copyWith(
-                                  fontFamily: 'New York',
-                                ),
+                            style:
+                                Theme.of(context).textTheme.headline4?.copyWith(
+                                      fontFamily: 'New York',
+                                    ),
                           ),
                         ),
                       ),
                       const SizedBox(height: 17),
                       GestureDetector(
                         onTap: () async {
-                          await ref.read(readerSettingsRepositoryProvider).setTypeFace('Inter');
+                          await ref
+                              .read(readerSettingsRepositoryProvider)
+                              .setTypeFace('Inter');
                           setState(() {});
                         },
                         child: Padding(
                           padding: const EdgeInsets.symmetric(vertical: 8.0),
                           child: Text(
                             'Inter',
-                            style: Theme.of(context).textTheme.headline4?.copyWith(
-                                  fontFamily: 'Inter',
-                                ),
+                            style:
+                                Theme.of(context).textTheme.headline4?.copyWith(
+                                      fontFamily: 'Inter',
+                                    ),
                           ),
                         ),
                       ),
@@ -199,12 +223,17 @@ class ReaderSettingsCard extends ConsumerWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text('Line Spacing', style: Theme.of(context).textTheme.headline5),
+                    Text('Line Spacing',
+                        style: Theme.of(context).textTheme.headline5),
                     const Spacer(),
                     GestureDetector(
                       onTap: () async {
-                        await ref.read(readerSettingsRepositoryProvider).decrementBodyTextHeight();
-                        await ref.read(readerSettingsRepositoryProvider).decrementVerseNumberHeight();
+                        await ref
+                            .read(readerSettingsRepositoryProvider)
+                            .decrementBodyTextHeight();
+                        await ref
+                            .read(readerSettingsRepositoryProvider)
+                            .decrementVerseNumberHeight();
                         setState(() {});
                       },
                       child: Container(
@@ -216,14 +245,19 @@ class ReaderSettingsCard extends ConsumerWidget {
                           shape: BoxShape.circle,
                         ),
                         child: Icon(Icons.format_line_spacing,
-                            color: Theme.of(context).colorScheme.onBackground, size: 16),
+                            color: Theme.of(context).colorScheme.onBackground,
+                            size: 16),
                       ),
                     ),
                     const SizedBox(width: 10),
                     GestureDetector(
                       onTap: () async {
-                        await ref.read(readerSettingsRepositoryProvider).incrementBodyTextHeight();
-                        await ref.read(readerSettingsRepositoryProvider).incrementVerseNumberHeight();
+                        await ref
+                            .read(readerSettingsRepositoryProvider)
+                            .incrementBodyTextHeight();
+                        await ref
+                            .read(readerSettingsRepositoryProvider)
+                            .incrementVerseNumberHeight();
                         setState(() {});
                       },
                       child: Container(
@@ -235,7 +269,8 @@ class ReaderSettingsCard extends ConsumerWidget {
                           shape: BoxShape.circle,
                         ),
                         child: Icon(Icons.format_line_spacing,
-                            color: Theme.of(context).colorScheme.onBackground, size: 26),
+                            color: Theme.of(context).colorScheme.onBackground,
+                            size: 26),
                       ),
                     ),
                   ],
@@ -250,11 +285,23 @@ class ReaderSettingsCard extends ConsumerWidget {
                       children: [
                         Text(
                           '20',
-                          style: Theme.of(context).textTheme.bodyText1?.copyWith(
-                                color: Theme.of(context).colorScheme.secondaryVariant,
-                                fontSize: ref.watch(readerSettingsRepositoryProvider).verseNumberSize * 1.1,
-                                height: ref.watch(readerSettingsRepositoryProvider).verseNumberHeight,
-                                fontFamily: ref.watch(readerSettingsRepositoryProvider).typeFace,
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyText1
+                              ?.copyWith(
+                                color: Theme.of(context)
+                                    .colorScheme
+                                    .secondaryVariant,
+                                fontSize: ref
+                                        .watch(readerSettingsRepositoryProvider)
+                                        .verseNumberSize *
+                                    1.1,
+                                height: ref
+                                    .watch(readerSettingsRepositoryProvider)
+                                    .verseNumberHeight,
+                                fontFamily: ref
+                                    .watch(readerSettingsRepositoryProvider)
+                                    .typeFace,
                               ),
                         ),
                         const Icon(
@@ -266,7 +313,9 @@ class ReaderSettingsCard extends ConsumerWidget {
                     ),
                   ),
                 ),
-                const TextSpan(text: '... I am with you alway, even unto the end of the world. Amen.'),
+                const TextSpan(
+                    text:
+                        '... I am with you alway, even unto the end of the world. Amen.'),
               ];
 
               return Container(
@@ -279,18 +328,34 @@ class ReaderSettingsCard extends ConsumerWidget {
                       Text(
                         'Example Text',
                         style: Theme.of(context).textTheme.bodyText1?.copyWith(
-                              color: Theme.of(context).colorScheme.secondaryVariant,
+                              color: Theme.of(context)
+                                  .colorScheme
+                                  .secondaryVariant,
                             ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: kDefaultPadding),
                         child: Text.rich(
                           TextSpan(children: spans),
-                          style: Theme.of(context).textTheme.headline5!.copyWith(
+                          style: Theme.of(context)
+                              .textTheme
+                              .headline5!
+                              .copyWith(
                                 fontWeight: FontWeight.w400,
-                                fontSize: ref.watch(readerSettingsRepositoryProvider.notifier).bodyTextSize * 1.4,
-                                height: ref.watch(readerSettingsRepositoryProvider.notifier).bodyTextHeight * 1.1,
-                                fontFamily: ref.watch(readerSettingsRepositoryProvider).typeFace,
+                                fontSize: ref
+                                        .watch(readerSettingsRepositoryProvider
+                                            .notifier)
+                                        .bodyTextSize *
+                                    1.4,
+                                height: ref
+                                        .watch(readerSettingsRepositoryProvider
+                                            .notifier)
+                                        .bodyTextHeight *
+                                    1.1,
+                                fontFamily: ref
+                                    .watch(readerSettingsRepositoryProvider)
+                                    .typeFace,
                               ),
                         ),
                       ),

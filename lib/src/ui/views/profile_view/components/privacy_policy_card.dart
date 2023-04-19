@@ -1,5 +1,5 @@
 /*
-Elisha iOS & Android App
+Sso iOS & Android App
 Copyright (C) 2022 Carlton Aikins
 
 This program is free software: you can redistribute it and/or modify
@@ -29,7 +29,7 @@ class PrivacyPolicyCard extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return GestureDetector(
       onTap: () async {
-        const link = 'https://31carlton7.github.io/elisha/privacy_policy';
+        const link = 'https://molorane.github.io/';
 
         if (await canLaunch(link)) {
           await launch(link);

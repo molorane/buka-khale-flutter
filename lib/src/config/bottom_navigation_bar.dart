@@ -58,7 +58,7 @@ class _BottomNavBarState extends ConsumerState<BottomNavBar> {
           icon: Icon(LineAwesomeIcons.bible, size: _iconSize),
         ),
         BottomNavigationBarItem(
-          label: 'Me',
+          label: 'Nna',
           tooltip: '',
           activeIcon: Icon(LineAwesomeIcons.user, size: _iconSize),
           icon: Icon(LineAwesomeIcons.user, size: _iconSize),

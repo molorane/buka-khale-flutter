@@ -36,7 +36,7 @@ class ChangeFirstNameCard extends ConsumerWidget {
 
     return CantonExpansionTile(
       title: Text(
-        'Chencha lebitso',
+        'Fetola lebitso',
         style: Theme.of(context).textTheme.titleLarge,
       ),
       decoration: BoxDecoration(

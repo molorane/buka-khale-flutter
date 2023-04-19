@@ -44,7 +44,7 @@ class ChangeBirthDateCard extends ConsumerWidget {
 
     return CantonExpansionTile(
       title: Text(
-        'Change Birthday',
+        'Fetola tsatsi la tsoalo',
         style: Theme.of(context).textTheme.titleLarge,
       ),
       decoration: BoxDecoration(

@@ -41,7 +41,7 @@ class ReaderSettingsCard extends ConsumerWidget {
           padding: const EdgeInsets.symmetric(vertical: 17, horizontal: 17),
           alignment: Alignment.centerLeft,
           child: Text(
-            'Chencha Lisettings',
+            'Fetola Lisettings',
             style: Theme.of(context).textTheme.titleLarge,
           ),
         ),
